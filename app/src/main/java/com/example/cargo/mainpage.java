@@ -1,2 +1,4 @@
-package com.example.cargo;public class mainpage {
+package com.example.cargo;
+
+public class mainpage {
 }

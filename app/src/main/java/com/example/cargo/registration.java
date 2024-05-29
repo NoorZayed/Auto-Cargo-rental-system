@@ -1,2 +1,4 @@
-package com.example.cargo;public class registration {
+package com.example.cargo;
+
+public class registration {
 }

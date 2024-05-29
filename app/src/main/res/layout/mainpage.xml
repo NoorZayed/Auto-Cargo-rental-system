@@ -1,6 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="416dp"
+        android:layout_height="267dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/material_dynamic_primary40"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
+
+        <LinearLayout
+            android:layout_width="414dp"
+            android:layout_height="104dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="From"
+                android:textColor="#F6F0F0"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tf_pickupDate"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="-----"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="To"
+                android:textColor="#F6F5F5"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tf_dropoffDate"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="------"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edt_pickupLocation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:ems="10"
+
+            android:hint="Enter Location!!"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#F8F7F7"
+            android:textSize="20sp" />
+
+        <Button
+
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:width="180dp"
+            android:backgroundTint="@color/material_dynamic_secondary30"
+            android:elegantTextHeight="true"
+            android:text="Search for available cars"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:icon="@android:drawable/ic_menu_search"
+            app:layout_constraintCircleRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="409dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="Auto Cargo"
+            android:textColor="#131313"
+            android:textSize="30sp" />
+
+        <Button
+
+            android:id="@+id/contact"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:width="180dp"
+            android:backgroundTint="@color/material_dynamic_secondary30"
+            android:elegantTextHeight="false"
+            android:text="Contact Us"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:icon="@android:drawable/ic_menu_call"
+            app:layout_constraintCircleRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginTop="1dp"
+        android:background="#00668B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <LinearLayout
+            android:id="@+id/menu_homep"
+            android:layout_width="83dp"
+            android:layout_height="63dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/homepic"
+                android:layout_width="51dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/home" />
+
+            <TextView
+                android:id="@+id/homepText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Home"
+                android:textColor="#F1EAEA" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_feedback"
+            android:layout_width="83dp"
+            android:layout_height="63dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/menu_homep">
+
+            <ImageView
+                android:id="@+id/FeedbackIcon"
+                android:layout_width="49dp"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="7dp"
+                app:srcCompat="@drawable/feedback" />
+
+            <TextView
+                android:id="@+id/FeedbackText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:text="Feedback"
+                android:textColor="#FAF6F6" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_about"
+            android:layout_width="83dp"
+            android:layout_height="63dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_contact"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/menu_feedback">
+
+            <ImageView
+                android:id="@+id/aboutIcon"
+                android:layout_width="54dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/aboutus" />
+
+            <TextView
+                android:id="@+id/aboutText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="About Us"
+                android:textColor="#FAF7F7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_contact"
+            android:layout_width="83dp"
+            android:layout_height="63dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_account">
+
+            <ImageView
+                android:id="@+id/contacticon"
+                android:layout_width="46dp"
+                android:layout_height="39dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/coicon" />
+
+            <TextView
+                android:id="@+id/contactText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Contact Us"
+                android:textColor="#FAF7F7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/menu_account"
+            android:layout_width="83dp"
+            android:layout_height="63dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/accountIcon"
+                android:layout_width="46dp"
+                android:layout_height="37dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/moreicon" />
+
+            <TextView
+                android:id="@+id/moreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="More"
+                android:textColor="#FAF7F7" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="420dp"
+        android:layout_height="308dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:srcCompat="@drawable/main" />
 </androidx.constraintlayout.widget.ConstraintLayout>
