@@ -1,6 +1,8 @@
 package com.example.cargo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -23,19 +25,38 @@ public class HomePage extends AppCompatActivity {
 
     private EditText edt_pickupLocation;
     private TextView tf_pickupDate, tf_dropoffDate, tf_warning;
-    private Button btn_search;
+    private Button btn_search, contact;
 
     private LinearLayout menu_addCar;
     private LinearLayout menu_feedback;
     private LinearLayout menu_home;
-    private LinearLayout menu_aboutus;
+    private LinearLayout menu_about;
     private LinearLayout menu_account;
     private RecyclerView recycler_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.mainpage);
+        contact = findViewById(R.id.contact);
+        menu_about = findViewById(R.id.menu_about);
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePage.this ,contactUs.class);
+                // Start the next Activity
+                startActivity(intent);
+            }
+        });
+        menu_about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePage.this ,AboutUs.class);
+                // Start the next Activity
+                startActivity(intent);
+
+            }
+        });
 
 //        setupView();
     }

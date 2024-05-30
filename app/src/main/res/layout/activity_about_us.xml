@@ -1,0 +1,214 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <!-- Company Logo -->
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/logo" />
+
+        <!-- Company Overview -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="About Cargo"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:lineSpacingMultiplier="1.5"
+            android:text="Established in 2024, Cargo quickly rose from its inception to become a trusted leader in the car rental industry. Founded among friends, our commitment to innovation and customer satisfaction has made us a symbol of reliability and quality.
+
+Our journey has been marked by continuous expansion and innovation, with a focus on enhancing our services to meet evolving customer demands. From introducing digital booking platforms to expanding our fleet with eco-friendly vehicles, we have remained committed to staying ahead of the curve and setting new standards of excellence.
+
+Today, Cargo stands tall as a trailblazer in the car rental industry, setting new benchmarks for excellence and redefining standards of service. With a robust presence in key markets and a team of passionate professionals dedicated to delivering nothing short of perfection, we are poised to continue our journey of success and make every journey memorable."
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+
+        <!-- Contact Information -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Contact Us"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+
+            android:id="@+id/contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:width="180dp"
+            android:backgroundTint="@color/material_dynamic_secondary30"
+            android:elegantTextHeight="false"
+            android:gravity="center"
+            android:text="Contact Us"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:icon="@android:drawable/ic_menu_call"
+            app:layout_constraintCircleRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="8dp"
+            android:background="#00668B">
+
+            <LinearLayout
+                android:id="@+id/menu_homep"
+                android:layout_width="83dp"
+                android:layout_height="63dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/homepic"
+                    android:layout_width="51dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/home" />
+
+                <TextView
+                    android:id="@+id/homepText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Home"
+                    android:textColor="#F1EAEA" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_feedback"
+                android:layout_width="83dp"
+                android:layout_height="63dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/menu_homep">
+
+                <ImageView
+                    android:id="@+id/FeedbackIcon"
+                    android:layout_width="49dp"
+                    android:layout_height="33dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="7dp"
+                    app:srcCompat="@drawable/feedback" />
+
+                <TextView
+                    android:id="@+id/FeedbackText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="2dp"
+                    android:text="Feedback"
+                    android:textColor="#FAF6F6" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_about"
+                android:layout_width="83dp"
+                android:layout_height="63dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menu_contact"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/menu_feedback">
+
+                <ImageView
+                    android:id="@+id/aboutIcon"
+                    android:layout_width="54dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/aboutus" />
+
+                <TextView
+                    android:id="@+id/aboutText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="About Us"
+                    android:textColor="#FAF7F7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_contact"
+                android:layout_width="83dp"
+                android:layout_height="63dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/menu_account">
+
+                <ImageView
+                    android:id="@+id/contacticon"
+                    android:layout_width="46dp"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/coicon" />
+
+                <TextView
+                    android:id="@+id/contactText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Contact Us"
+                    android:textColor="#FAF7F7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_account"
+                android:layout_width="83dp"
+                android:layout_height="63dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <ImageView
+                    android:id="@+id/accountIcon"
+                    android:layout_width="46dp"
+                    android:layout_height="37dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/moreicon" />
+
+                <TextView
+                    android:id="@+id/moreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="More"
+                    android:textColor="#FAF7F7" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</ScrollView>
