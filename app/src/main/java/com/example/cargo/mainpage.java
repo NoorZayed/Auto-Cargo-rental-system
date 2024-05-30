@@ -1,5 +1,14 @@
 package com.example.cargo;
 
-public class mainpage {
+import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+public class mainpage  extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.mainpage);
+
+}
 }

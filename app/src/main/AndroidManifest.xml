@@ -13,12 +13,6 @@
         android:theme="@style/Theme.Cargo"
         tools:targetApi="31">
         <activity
-            android:name=".AboutUs"
-            android:exported="false" />
-        <activity
-            android:name=".contactUs"
-            android:exported="false" />
-        <activity
             android:name=".Start"
             android:exported="true">
             <intent-filter>
@@ -27,9 +21,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login" />
-        <activity android:name=".welcome" />
-        <activity android:name=".HomePage" />
+        <activity
+            android:name=".login">
+
+        </activity>
+        <activity
+            android:name=".welcome">
+
+        </activity>
+        <activity
+            android:name=".mainpage">
+
+        </activity>
+        <activity
+            android:name=".register">
+
+        </activity>
+        <activity
+            android:name=".adminpage">
+
+        </activity>
     </application>
 
 </manifest>
