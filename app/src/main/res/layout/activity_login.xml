@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome_txt" />
 
     <EditText
-        android:id="@+id/username_txt"
+        android:id="@+id/uemail_txt"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="24dp"
@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_txt"
+        app:layout_constraintTop_toBottomOf="@+id/uemail_txt"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView

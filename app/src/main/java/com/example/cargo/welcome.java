@@ -29,7 +29,7 @@ public class welcome  extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
-                    Intent intent = new Intent(welcome.this ,HomePage.class);
+                    Intent intent = new Intent(welcome.this ,mainpage.class);
                     // Start the next Activity
                     startActivity(intent);
                 }
