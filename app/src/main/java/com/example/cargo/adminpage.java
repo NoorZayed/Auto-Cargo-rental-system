@@ -1,4 +1,4 @@
 package com.example.cargo;
 
-public class registration {
+public class adminpage {
 }

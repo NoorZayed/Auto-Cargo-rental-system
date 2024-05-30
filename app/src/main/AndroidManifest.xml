@@ -29,7 +29,18 @@
             android:name=".welcome">
 
         </activity>
+        <activity
+            android:name=".mainpage">
 
+        </activity>
+        <activity
+            android:name=".register">
+
+        </activity>
+        <activity
+            android:name=".adminpage">
+
+        </activity>
     </application>
 
 </manifest>

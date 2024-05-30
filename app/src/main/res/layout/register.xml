@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:background="@drawable/reg"
     android:textAlignment="center"
-    tools:context=".registration">
+    tools:context=".register">
 
     <Button
-        android:id="@+id/registration_btn"
+        android:id="@+id/update_btn"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
