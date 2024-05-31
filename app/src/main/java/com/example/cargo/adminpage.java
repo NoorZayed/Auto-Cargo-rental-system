@@ -39,7 +39,7 @@ public class adminpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
-                Intent intent = new Intent(adminpage.this ,mainpage.class);
+                Intent intent = new Intent(adminpage.this ,searchCar.class);
                 // Start the next Activity
                 startActivity(intent);
             }
@@ -75,7 +75,7 @@ public class adminpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
-                Intent intent = new Intent(adminpage.this ,mainpage.class);
+                Intent intent = new Intent(adminpage.this ,rentedCars.class);
                 // Start the next Activity
                 startActivity(intent);
             }

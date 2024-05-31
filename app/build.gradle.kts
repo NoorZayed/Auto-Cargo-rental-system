@@ -31,6 +31,8 @@ android {
 
 dependencies {
     implementation("com.android.volley:volley:1.2.1")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

@@ -1,6 +1,7 @@
 package com.example.cargo;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -45,17 +47,62 @@ public class rentedCars extends AppCompatActivity {
         rentedCarsList = new ArrayList<>();
         adapter = new carAdapter(rentedCarsList);
         RV.setAdapter(adapter);
+        fetchRentedCars();
 
     }
-    private void fetchRentedCars() {
-        String url = "URL_TO_PHP_SCRIPT_FOR_FETCHING_RENTED_CARS";
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject carObject = response.getJSONObject(i);
+//    private void fetchRentedCars() {
+//        String url = "http://192.168.68.52/android/rented.php";
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        try {
+//                            boolean success = response.getBoolean("success");
+//                            if (success) {
+//                                JSONArray carsArray = response.getJSONArray("rentedCars");
+//                                for (int i = 0; i < carsArray.length(); i++) {
+//                                    JSONObject carObject = carsArray.getJSONObject(i);
+//                                    int id = carObject.getInt("id");
+//                                    String brand = carObject.getString("brand");
+//                                    String location = carObject.getString("location");
+//                                    int yearModel = carObject.getInt("year_model");
+//                                    int seatsNumber = carObject.getInt("seats_number");
+//                                    String transmission = carObject.getString("transmission");
+//                                    String motorFuel = carObject.getString("motor_fuel");
+//                                    double offeredPrice = carObject.getDouble("offered_price");
+//                                    String image = carObject.getString("image");
+//
+//                                    rentedCarsList.add(new Car(id, brand, location, yearModel, seatsNumber, transmission, motorFuel, offeredPrice, image));
+//                                }
+//                                adapter.notifyDataSetChanged();
+//                            } else {
+//                                // Handle the case where success is false
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                // Handle error response
+//            }
+//        }
+//        );
+//        queue.add(jsonObjectRequest);
+//    }
+private void fetchRentedCars() {
+    String url = "http://192.168.68.52/android/rented.php";
+    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+            new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    try {
+                        boolean success = response.getBoolean("success");
+                        if (success) {
+                            JSONArray carsArray = response.getJSONArray("rentedCars");
+                            for (int i = 0; i < carsArray.length(); i++) {
+                                JSONObject carObject = carsArray.getJSONObject(i);
                                 int id = carObject.getInt("id");
                                 String brand = carObject.getString("brand");
                                 String location = carObject.getString("location");
@@ -64,23 +111,28 @@ public class rentedCars extends AppCompatActivity {
                                 String transmission = carObject.getString("transmission");
                                 String motorFuel = carObject.getString("motor_fuel");
                                 double offeredPrice = carObject.getDouble("offered_price");
-                                // Assuming the image is stored as a byte array in the database
-                                byte[] imageBlob = carObject.getString("image_blob").getBytes(); // Replace getString() with getBlob() if the image is stored as a BLOB
+                                String image = carObject.getString("image");
 
-                                // Create a new Car object with the parsed data and add it to the rentedCarsList
-                                rentedCarsList.add(new Car(id, brand, location, yearModel, seatsNumber, transmission, motorFuel, offeredPrice, imageBlob));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+                                rentedCarsList.add(new Car(id, brand, location, yearModel, seatsNumber, transmission, motorFuel, offeredPrice, image));
+                                Log.d("fetchRentedCars", "Car added: " + brand);
                             }
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            Log.d("fetchRentedCars", "Success is false");
                         }
-                        adapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // Handle error response
-            }
-        });
-        queue.add(jsonArrayRequest);
+                }
+            }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            Log.e("fetchRentedCars", "Error: " + error.toString());
+        }
     }
+    );
+    queue.add(jsonObjectRequest);
+}
+
+
 }
