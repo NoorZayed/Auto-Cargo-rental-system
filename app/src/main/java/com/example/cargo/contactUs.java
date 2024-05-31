@@ -64,7 +64,7 @@ public class contactUs extends AppCompatActivity {
         menu_homep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(contactUs.this ,HomePage.class);
+                Intent intent = new Intent(contactUs.this ,mainpage.class);
                 // Start the next Activity
                 startActivity(intent);
 

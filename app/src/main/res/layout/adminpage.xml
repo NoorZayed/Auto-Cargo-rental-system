@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout9"
         android:layout_width="409dp"
-        android:layout_height="83dp"
+        android:layout_height="0dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
@@ -56,7 +56,9 @@
         android:id="@+id/logout_btn"
         android:layout_width="158dp"
         android:layout_height="117dp"
-        android:layout_marginStart="228dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="140dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
@@ -65,15 +67,19 @@
         android:textStyle="bold"
         app:icon="@drawable/logout"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rental_btn"
+        app:layout_constraintTop_toBottomOf="@+id/add_btn"
         tools:text="Log Out" />
 
     <Button
         android:id="@+id/update_btn"
         android:layout_width="161dp"
         android:layout_height="120dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="288dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="28dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
         android:elegantTextHeight="true"
@@ -81,15 +87,20 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:icon="@android:drawable/ic_menu_manage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/rental_btn"
+        app:layout_constraintEnd_toStartOf="@+id/add_btn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/allcars_btn" />
 
     <Button
         android:id="@+id/allcars_btn"
         android:layout_width="157dp"
         android:layout_height="123dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="176dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="24dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
         android:elegantTextHeight="true"
@@ -97,6 +108,8 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:icon="@android:drawable/ic_menu_search"
+        app:layout_constraintBottom_toTopOf="@+id/update_btn"
+        app:layout_constraintEnd_toStartOf="@+id/delete_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,7 +117,9 @@
         android:id="@+id/rental_btn"
         android:layout_width="155dp"
         android:layout_height="116dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="140dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
@@ -113,15 +128,19 @@
         android:textStyle="bold"
         app:icon="@drawable/cars"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/logout_btn"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_btn"
         tools:text="Rental Cars" />
 
     <Button
         android:id="@+id/delete_btn"
         android:layout_width="164dp"
         android:layout_height="118dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="176dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="28dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
         android:elegantTextHeight="true"
@@ -129,15 +148,20 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:icon="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toTopOf="@+id/add_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/allcars_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/add_btn"
-        android:layout_width="165dp"
-        android:layout_height="121dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="288dp"
+        android:layout_width="164dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="28dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
         android:elegantTextHeight="true"
@@ -145,8 +169,10 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:icon="@android:drawable/ic_menu_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/logout_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/update_btn"
+        app:layout_constraintTop_toBottomOf="@+id/delete_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
