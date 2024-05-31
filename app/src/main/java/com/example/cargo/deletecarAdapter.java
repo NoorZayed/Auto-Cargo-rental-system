@@ -87,8 +87,9 @@ public class deletecarAdapter extends RecyclerView.Adapter<deletecarAdapter.Dele
             offeredPriceTextView.setText("Offered Price: " + car.getOfferedPrice());
 
             // Load image using BitmapFactory
-            if (car.getImageBlob() != null) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(car.getImageBlob(), 0, car.getImageBlob().length);
+            String imagePath = car.getImage();
+            if (imagePath != null) {
+                Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
                 carImageView.setImageBitmap(bitmap);
             } else {
                 // Set default image if no image available

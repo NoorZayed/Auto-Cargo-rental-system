@@ -1,6 +1,5 @@
 package com.example.cargo;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
     }
 
     static class CarViewHolder extends RecyclerView.ViewHolder {
-
+        private TextView car_id;
         private TextView brandTextView;
         private TextView locationTextView;
         private TextView yearModelTextView;
@@ -51,6 +52,7 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
 
         public CarViewHolder(@NonNull View itemView) {
             super(itemView);
+            car_id = itemView.findViewById(R.id.car_id);
             brandTextView = itemView.findViewById(R.id.car_brand);
             locationTextView = itemView.findViewById(R.id.car_location);
             yearModelTextView = itemView.findViewById(R.id.car_year_model);
@@ -62,6 +64,7 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
         }
 
         public void bind(Car car) {
+            car_id.setText("ID: "+car.getId());
             brandTextView.setText("Brand: " + car.getBrand());
             locationTextView.setText("Location: " + car.getLocation());
             yearModelTextView.setText("Year Model: " + car.getYearModel());
@@ -71,12 +74,22 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
             offeredPriceTextView.setText("Offered Price: " + car.getOfferedPrice());
 
             // Load image using BitmapFactory
-            if (car.getImageBlob() != null) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(car.getImageBlob(), 0, car.getImageBlob().length);
-                carImageView.setImageBitmap(bitmap);
+//            String imagePath = car.getImage();
+//            if (imagePath != null) {
+//                Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+//                carImageView.setImageBitmap(bitmap);
+//            } else {
+//                // Set default image if no image available
+//                //carImageView.setImageResource(R.drawable.default_car_image);
+//            }
+            String imageUrl = car.getImage();
+            if (imageUrl != null) {
+                Glide.with(itemView.getContext())
+                        .load(imageUrl)
+                        .into(carImageView);
             } else {
                 // Set default image if no image available
-                //carImageView.setImageResource(R.drawable.default_car_image);
+                // carImageView.setImageResource(R.drawable.default_car_image);
             }
         }
     }

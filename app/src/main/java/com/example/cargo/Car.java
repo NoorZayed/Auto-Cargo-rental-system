@@ -8,9 +8,9 @@ public class Car {
     private String transmission;
     private String motorFuel;
     private double offeredPrice;
-    private byte[] imageBlob; // BLOB field for the image data
+    private String image; // BLOB field for the image data
 
-    public Car(int id, String brand, String location, int yearModel, int seatsNumber, String transmission, String motorFuel, double offeredPrice, byte[] imageBlob) {
+    public Car(int id, String brand, String location, int yearModel, int seatsNumber, String transmission, String motorFuel, double offeredPrice, String image) {
         this.id = id;
         this.brand = brand;
         this.location = location;
@@ -19,7 +19,7 @@ public class Car {
         this.transmission = transmission;
         this.motorFuel = motorFuel;
         this.offeredPrice = offeredPrice;
-        this.imageBlob = imageBlob;
+        this.image = image;
     }
 
     public int getId() {
@@ -86,12 +86,12 @@ public class Car {
         this.offeredPrice = offeredPrice;
     }
 
-    public byte[] getImageBlob() {
-        return imageBlob;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageBlob(byte[] imageBlob) {
-        this.imageBlob = imageBlob;
+    public void setImageBlob(String image) {
+        this.image = image;
     }
 }
 
