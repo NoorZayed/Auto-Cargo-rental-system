@@ -18,95 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-//import com.google.firebase.auth.AuthResult;
-//import com.google.firebase.auth.FirebaseAuth;
 
-//public class login extends AppCompatActivity {
-//    EditText email_txt;
-//    EditText password_txt;
-//    Button login_btn;
-//    Button registration_page_btn;
-//
-//    private FirebaseAuth mAuth;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_login);
-//
-//        mAuth = FirebaseAuth.getInstance();
-//        setupViews();
-//    }
-//
-//    private void setupViews() {
-//        email_txt = findViewById(R.id.email_txt);
-//        password_txt = findViewById(R.id.pw_txt);
-//        login_btn = findViewById(R.id.login_page_btn);
-//        registration_page_btn = findViewById(R.id.register_btn);
-//
-//        login_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (checkInformation()) {
-//                    signInUser(email_txt.getText().toString(), password_txt.getText().toString());
-//                }
-//            }
-//        });
-//
-//        registration_page_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(login.this, register.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
-//
-//    private void signInUser(String email, String password) {
-//        mAuth.signInWithEmailAndPassword(email, password)
-//                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<AuthResult> task) {
-//                        if (task.isSuccessful()) {
-//                            // Sign in success
-//                            Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
-//                            // Navigate to another activity if needed
-//                            // Intent intent = new Intent(login.this, NextActivity.class);
-//                            // startActivity(intent);
-//                            // finish();
-//                        } else {
-//                            // If sign in fails, display a message to the user.
-//                            Toast.makeText(login.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-//    }
-//
-//    boolean isEmail(EditText text) {
-//        CharSequence email_txt = text.getText().toString();
-//        return (!TextUtils.isEmpty(email_txt) && Patterns.EMAIL_ADDRESS.matcher(email_txt).matches());
-//    }
-//
-//    private boolean checkInformation() {
-//        if (email_txt.getText().toString().isEmpty()) {
-//            email_txt.setError("Email is Required");
-//            return false;
-//        } else if (!isEmail(email_txt)) {
-//            email_txt.setError("Please Enter a Valid Email!");
-//            return false;
-//        }
-//
-//        if (password_txt.getText().toString().isEmpty() || password_txt.length() < 6) {
-//            password_txt.setError("Please Enter a Password With at Least 6 Characters");
-//            return false;
-//        }
-//
-//        return true;
-//    }
-//}
-
-
-//
 public class login extends AppCompatActivity {
     EditText email_txt;
     EditText password_txt;
@@ -137,13 +49,13 @@ public class login extends AppCompatActivity {
                         Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(login.this, welcome.class);
                         startActivity(intent);
-                        finish();
+//                        finish();
                     }if (email_txt.getText().toString().trim().equals("admin@gmail.com") &&
                             password_txt.getText().toString().equals("admin123")) {
                         Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(login.this, adminpage.class);
                         startActivity(intent);
-                        finish();
+//                        finish();
                     } else {
                         Toast.makeText(login.this, "Invalid Email or Password", Toast.LENGTH_SHORT).show();
                     }
