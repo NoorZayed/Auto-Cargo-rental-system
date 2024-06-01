@@ -49,49 +49,10 @@ public class rentedCars extends AppCompatActivity {
         fetchRentedCars();
 
     }
-//    private void fetchRentedCars() {
-//        String url = "http://192.168.68.52/android/rented.php";
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        try {
-//                            boolean success = response.getBoolean("success");
-//                            if (success) {
-//                                JSONArray carsArray = response.getJSONArray("rentedCars");
-//                                for (int i = 0; i < carsArray.length(); i++) {
-//                                    JSONObject carObject = carsArray.getJSONObject(i);
-//                                    int id = carObject.getInt("id");
-//                                    String brand = carObject.getString("brand");
-//                                    String location = carObject.getString("location");
-//                                    int yearModel = carObject.getInt("year_model");
-//                                    int seatsNumber = carObject.getInt("seats_number");
-//                                    String transmission = carObject.getString("transmission");
-//                                    String motorFuel = carObject.getString("motor_fuel");
-//                                    double offeredPrice = carObject.getDouble("offered_price");
-//                                    String image = carObject.getString("image");
-//
-//                                    rentedCarsList.add(new Car(id, brand, location, yearModel, seatsNumber, transmission, motorFuel, offeredPrice, image));
-//                                }
-//                                adapter.notifyDataSetChanged();
-//                            } else {
-//                                // Handle the case where success is false
-//                            }
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                // Handle error response
-//            }
-//        }
-//        );
-//        queue.add(jsonObjectRequest);
-//    }
+
 private void fetchRentedCars() {
-    String url = "http://192.168.1.104/android/rented.php";
+   // String url = "http://192.168.1.104/android/rented.php";
+    String url = "http://192.168.58.62/android/rented.php";
     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
             new Response.Listener<JSONObject>() {
                 @Override
