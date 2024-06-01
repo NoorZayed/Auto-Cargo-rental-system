@@ -30,7 +30,7 @@ public class deleteCars extends AppCompatActivity {
     private RecyclerView RV;
     private deletecarAdapter adapter;
     private List<Car> carsList;
-
+//mo issa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
