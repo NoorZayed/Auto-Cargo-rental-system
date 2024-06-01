@@ -15,7 +15,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -92,7 +91,7 @@ public class rentedCars extends AppCompatActivity {
 //        queue.add(jsonObjectRequest);
 //    }
 private void fetchRentedCars() {
-    String url = "http://192.168.68.52/android/rented.php";
+    String url = "http://192.168.1.104/android/rented.php";
     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
             new Response.Listener<JSONObject>() {
                 @Override

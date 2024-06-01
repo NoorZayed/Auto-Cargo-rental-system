@@ -176,7 +176,7 @@ public class searchCar extends AppCompatActivity {
     }
 
     private void fetchRentedCars() {
-        String url = "http://192.168.68.52/android/search.php?stringQuery=";
+        String url = "http://192.168.1.104/android/search.php?stringQuery=";
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -211,7 +211,7 @@ public class searchCar extends AppCompatActivity {
     }
 
     private void searchCars(String keyword) {
-        String url = "http://192.168.68.52/android/search.php?searchQuery=" + keyword;
+        String url = "http://192.168.1.104/android/search.php?searchQuery=" + keyword;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override

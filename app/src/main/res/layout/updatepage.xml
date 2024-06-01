@@ -8,17 +8,17 @@
 
     <Button
         android:id="@+id/updateimage"
-        android:layout_width="188dp"
-        android:layout_height="50dp"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
         android:layout_marginStart="128dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#2E4644"
-        android:text="Upload Image"
+        android:text="Upload "
         app:icon="@android:drawable/ic_menu_upload"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -248,13 +248,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/addbtn"
+        android:id="@+id/updatebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
         android:layout_marginBottom="26dp"
         android:backgroundTint="#2E4644"
-        android:text="Add"
+        android:text="Update"
         app:icon="@drawable/up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -8,7 +8,7 @@ public class Car {
     private String transmission;
     private String motorFuel;
     private double offeredPrice;
-    private String image; // BLOB field for the image data
+    private String image;
 
     public Car(int id, String brand, String location, int yearModel, int seatsNumber, String transmission, String motorFuel, double offeredPrice, String image) {
         this.id = id;
