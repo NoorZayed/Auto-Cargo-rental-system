@@ -89,7 +89,7 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
                         .into(carImageView);
             } else {
                 // Set default image if no image available
-                // carImageView.setImageResource(R.drawable.default_car_image);
+//                 carImageView.setImageResource(R.drawable.default_car_image);
             }
         }
     }

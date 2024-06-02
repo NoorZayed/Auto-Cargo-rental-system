@@ -48,8 +48,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="431dp"
-        android:layout_height="466dp"
+        android:layout_width="403dp"
+        android:layout_height="452dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="96dp"
         android:background="#353A3A"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,11 +65,12 @@
             android:layout_width="190dp"
             android:layout_height="48dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="#F8F4F4"
             android:ems="10"
             android:fontFamily="monospace"
             android:hint="Seats Number"
             android:inputType="textPersonName"
-            android:textAlignment="viewStart"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/carYearspin"
@@ -132,9 +135,10 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:backgroundTint="#F8F4F4"
-            android:gravity="right"
             android:hint="car Transmition"
             android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/seatsText"
             app:layout_constraintTop_toTopOf="@+id/textView11" />
 
@@ -145,9 +149,10 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:backgroundTint="#F6F4F4"
-            android:gravity="right"
             android:hint="Car Fuel"
             android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/carTransmition"
             app:layout_constraintTop_toTopOf="@+id/textView12" />
 
@@ -159,9 +164,10 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="28dp"
             android:backgroundTint="#F4F1F1"
-            android:gravity="right"
             android:hint="Brand"
             android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView7" />
 
@@ -172,9 +178,10 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:backgroundTint="#F6F2F2"
-            android:gravity="right"
             android:hint="Year"
             android:minHeight="48dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/carBrandrSpin"
             app:layout_constraintTop_toTopOf="@+id/textView10" />
 
@@ -224,6 +231,7 @@
             android:layout_width="190dp"
             android:layout_height="48dp"
             android:layout_marginTop="20dp"
+            android:backgroundTint="#F8F4F4"
             android:ems="10"
             android:hint="Price"
             android:inputType="textPersonName"
@@ -238,9 +246,12 @@
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:backgroundTint="#F8F4F4"
+
             android:ems="10"
             android:hint="Location"
             android:inputType="textPersonName"
+
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/carFuel"

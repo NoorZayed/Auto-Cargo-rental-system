@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">cargo</string>
+    <!-- Other strings -->
+    <string-array name="car_filters">
+        <item>Most rented car</item>
+        <item>Today car rented</item>
+        <item>Most review</item>
+        <item>The car most rented</item>
+    </string-array>
 </resources>

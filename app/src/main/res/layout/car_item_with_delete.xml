@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -82,12 +83,40 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:text="Delete"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#000000"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="30dp"
+            android:background="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_error"
+            android:text="Delete"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#000000"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:strokeColor="#0E0D0D" />
+
+        <Button
+            android:id="@+id/update_button"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="30dp"
+            android:background="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_error"
+            android:text="Update"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#000000"
+            app:icon="@android:drawable/ic_menu_edit"
+            app:strokeColor="#0E0D0D" />
+    </LinearLayout>
+
 </LinearLayout>

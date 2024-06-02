@@ -5,12 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back1"
+    android:padding="16dp"
     tools:context=".searchCar">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:id="@+id/linearLayout2"
+        android:layout_width="377dp"
+        android:layout_height="154dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/RV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView8"
@@ -18,9 +32,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
+            android:paddingBottom="16dp"
             android:text="Search Cars"
-            android:textColor="#000000"
-            android:textSize="40sp" />
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,28 +45,49 @@
 
             <EditText
                 android:id="@+id/searchtxt"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="10"
-                android:hint="search keyword"
-                android:inputType="text" />
+                android:background="@drawable/edittext_background"
+                android:hint="Search keyword"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="8dp" />
 
             <Button
                 android:id="@+id/searchbtn"
+                style="?attr/buttonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="@color/material_dynamic_secondary30"
-                android:text="Search" />
+                android:layout_marginStart="8dp"
+                android:text="Search"
+                app:icon="@android:drawable/ic_search_category_default" />
+
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:scrollbars="vertical" />
+        <Spinner
+            android:id="@+id/spinnerreport"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="48dp" />
+
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RV"
+        android:layout_width="371dp"
+        android:layout_height="562dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/material_dynamic_tertiary95"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
