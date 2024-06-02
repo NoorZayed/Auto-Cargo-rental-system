@@ -2,6 +2,7 @@ package com.example.cargo;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,8 @@ public class deletecarAdapter extends RecyclerView.Adapter<deletecarAdapter.CarV
         private TextView offeredPriceTextView;
         private ImageView carImageView;
         private Button deleteButton;
+        private Button updateButton;
+
 
         public CarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +81,8 @@ public class deletecarAdapter extends RecyclerView.Adapter<deletecarAdapter.CarV
             offeredPriceTextView = itemView.findViewById(R.id.car_offered_price);
             carImageView = itemView.findViewById(R.id.car_image);
             deleteButton = itemView.findViewById(R.id.delete_button);
+            updateButton = itemView.findViewById(R.id.update_button);
+
         }
 
         public void bind(final Car car) {
@@ -103,8 +108,24 @@ public class deletecarAdapter extends RecyclerView.Adapter<deletecarAdapter.CarV
                     showDeleteDialog(car);
                 }
             });
-        }
 
+            updateButton.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                Intent intent = new Intent(context, updatecar.class);
+                intent.putExtra("car_id", car.getId());
+                intent.putExtra("brand", car.getBrand());
+                intent.putExtra("location", car.getLocation());
+                intent.putExtra("year_model", car.getYearModel());
+                intent.putExtra("seats_number", car.getSeatsNumber());
+                intent.putExtra("transmission", car.getTransmission());
+                intent.putExtra("motor_fuel", car.getMotorFuel());
+                intent.putExtra("offered_price", car.getOfferedPrice());
+                intent.putExtra("image", car.getImage());
+                context.startActivity(intent);
+            }
+        });
+    }
         private void showDeleteDialog(final Car car) {
             new AlertDialog.Builder(context)
                     .setTitle("Delete Car")
