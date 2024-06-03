@@ -30,7 +30,7 @@ public class addcar extends AppCompatActivity {
     private EditText brandEditText, locationEditText, yearEditText, seatsEditText, transmissionEditText, fuelEditText, priceEditText;
     private ImageView carImageView;
     private Button uploadButton, addButton;
-
+private Button backb;
     private static final int IMAGE_PICK_CODE = 1000;
     private static final String URL = "http://192.168.1.104/android/add_car.php";
 
@@ -50,6 +50,7 @@ public class addcar extends AppCompatActivity {
         carImageView = findViewById(R.id.imageView3);
         uploadButton = findViewById(R.id.uploadbtn);
         addButton = findViewById(R.id.addbtn);
+        backb = findViewById(R.id.back);
 
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +63,15 @@ public class addcar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addCar();
+            }
+        });
+        backb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
+                Intent intent = new Intent(addcar.this , adminpage.class);
+                // Start the next Activity
+                startActivity(intent);
             }
         });
     }

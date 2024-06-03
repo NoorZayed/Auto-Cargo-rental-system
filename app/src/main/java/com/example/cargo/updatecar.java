@@ -48,6 +48,7 @@ public class updatecar extends AppCompatActivity {
     private EditText CarPrice;
     private Button updatebtn;
     private Button upload;
+    private Button backb;
     private Button deleteButton;
     private ImageButton imageButton;
     private Uri selectedImageUri;
@@ -83,6 +84,7 @@ public class updatecar extends AppCompatActivity {
         carTransmition = findViewById(R.id.carTransmition);
         carFuel = findViewById(R.id.carFuel);
         CarPrice = findViewById(R.id.CarPrice);
+        backb = findViewById(R.id.back);
 
         updatebtn = findViewById(R.id.updatebtn);
 
@@ -99,6 +101,15 @@ public class updatecar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showDeleteDialog();
+            }
+        });
+        backb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
+                Intent intent = new Intent(updatecar.this , EditCars.class);
+                // Start the next Activity
+                startActivity(intent);
             }
         });
     }
