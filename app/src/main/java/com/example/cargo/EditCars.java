@@ -25,17 +25,17 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class deleteCars extends AppCompatActivity {
+public class EditCars extends AppCompatActivity {
     private RequestQueue queue;
     private RecyclerView RV;
-    private deletecarAdapter adapter;
+    private updatecarAdapter adapter;
     private List<Car> carsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_delete_cars);
+        setContentView(R.layout.activity_edit_cars);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -45,7 +45,7 @@ public class deleteCars extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
         RV.setLayoutManager(new LinearLayoutManager(this));
         carsList = new ArrayList<>();
-        adapter = new deletecarAdapter(carsList, this);
+        adapter = new updatecarAdapter(carsList, this);
         RV.setAdapter(adapter);
         fetchCars();
     }

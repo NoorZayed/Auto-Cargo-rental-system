@@ -3,21 +3,12 @@ package com.example.cargo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class login extends AppCompatActivity {
     EditText email_txt;
@@ -50,8 +41,8 @@ public class login extends AppCompatActivity {
                         Intent intent = new Intent(login.this, welcome.class);
                         startActivity(intent);
 //                        finish();
-                    }if (email_txt.getText().toString().trim().equals("admin@gmail.com") &&
-                            password_txt.getText().toString().equals("admin123")) {
+                    }if (email_txt.getText().toString().trim().equals("1") &&
+                            password_txt.getText().toString().equals("1")) {
                         Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(login.this, adminpage.class);
                         startActivity(intent);
@@ -120,7 +111,8 @@ public class login extends AppCompatActivity {
 
     boolean isEmail(EditText text) {
         CharSequence email_txt = text.getText().toString();
-        return (!TextUtils.isEmpty(email_txt) && Patterns.EMAIL_ADDRESS.matcher(email_txt).matches());
+        return (!TextUtils.isEmpty(email_txt)) ;
+//                && Patterns.EMAIL_ADDRESS.matcher(email_txt).matches());
     }
 
     private boolean checkInformation() {
@@ -132,10 +124,10 @@ public class login extends AppCompatActivity {
             return false;
         }
 
-        if (password_txt.getText().toString().isEmpty() || password_txt.length() < 6) {
-            password_txt.setError("Please Enter a Password With at Least 6 Characters");
-            return false;
-        }
+//        if (password_txt.getText().toString().isEmpty() || password_txt.length() < 6) {
+//            password_txt.setError("Please Enter a Password With at Least 6 Characters");
+//            return false;
+//        }
 
         return true;
     }

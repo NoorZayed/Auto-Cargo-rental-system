@@ -32,8 +32,8 @@ public class addcar extends AppCompatActivity {
     private Button uploadButton, addButton;
 
     private static final int IMAGE_PICK_CODE = 1000;
-//    private static final String URL = "http://192.168.68.52/android/add_car.php";
     private static final String URL = "http://192.168.1.104/android/add_car.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,7 @@ public class addcar extends AppCompatActivity {
 
     private void pickImageFromGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("images/*");
+        intent.setType("image/*");
         startActivityForResult(intent, IMAGE_PICK_CODE);
     }
 
@@ -102,6 +102,15 @@ public class addcar extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        brandEditText.setText(null);
+                        locationEditText.setText(null);
+                        yearEditText.setText(null);
+                        seatsEditText.setText(null);
+                        transmissionEditText.setText(null);
+                        fuelEditText.setText(null);
+                        priceEditText.setText(null);
+                        carImageView.setImageURI(null);
+
                         Toast.makeText(addcar.this, "Car added successfully!", Toast.LENGTH_SHORT).show();
                     }
                 },

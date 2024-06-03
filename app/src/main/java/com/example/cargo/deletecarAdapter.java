@@ -40,7 +40,7 @@ public class deletecarAdapter extends RecyclerView.Adapter<deletecarAdapter.CarV
     @NonNull
     @Override
     public CarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.car_item_with_delete, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.updatepage, parent, false);
         return new CarViewHolder(view);
     }
 

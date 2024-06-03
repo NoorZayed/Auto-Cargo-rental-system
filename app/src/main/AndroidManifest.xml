@@ -23,7 +23,7 @@
             android:name=".searchCar"
             android:exported="false" />
         <activity
-            android:name=".deleteCars"
+            android:name=".EditCars"
             android:exported="false" />
         <activity
             android:name=".rentedCars"
