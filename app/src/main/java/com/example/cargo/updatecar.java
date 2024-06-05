@@ -289,7 +289,6 @@
 
 package com.example.cargo;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -297,9 +296,9 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -310,8 +309,6 @@ import android.widget.ImageButton;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -382,7 +379,13 @@ public class updatecar extends AppCompatActivity {
         updatebtn = findViewById(R.id.updatebtn);
 
         carId = intent.getIntExtra("car_id", -1);
-        fetchCarDetails();
+        if (savedInstanceState != null) {
+            // Restore saved instance state if available
+            restoreInstanceState(savedInstanceState);
+        } else {
+            // Fetch car details only if not restored from saved instance state
+            fetchCarDetails();
+        }
 
         updatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -399,27 +402,37 @@ public class updatecar extends AppCompatActivity {
         backb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
-                Intent intent = new Intent(updatecar.this , EditCars.class);
-                // Start the next Activity
-                startActivity(intent);
+                navigateBack();
             }
         });
     }
-
-    private void checkStoragePermissionAndSelectImage() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        REQUEST_STORAGE_PERMISSION);
-            } else {
-                selectImageFromGallery();
-            }
-        } else {
-            selectImageFromGallery();
-        }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Save the current state of the activity
+        saveInstanceState(outState);
     }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Restore the saved state of the activity
+        restoreInstanceState(savedInstanceState);
+    }
+
+//    private void checkStoragePermissionAndSelectImage() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+//                    != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+//                        REQUEST_STORAGE_PERMISSION);
+//            } else {
+//                selectImageFromGallery();
+//            }
+//        } else {
+//            selectImageFromGallery();
+//        }
+//    }
 
     private void selectImageFromGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -432,6 +445,10 @@ public class updatecar extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_SELECT && resultCode == RESULT_OK && data != null && data.getData() != null) {
             selectedImageUri = data.getData();
             imageButton.setImageURI(selectedImageUri);
+        }
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            // Refresh the data by fetching the cars again
+            fetchCarDetails();
         }
     }
 
@@ -531,13 +548,6 @@ public class updatecar extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-//    private String imageToString() {
-//        Bitmap bitmap = ((BitmapDrawable) imageButton.getDrawable()).getBitmap();
-//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-//        byte[] imageBytes = byteArrayOutputStream.toByteArray();
-//        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
-//    }
 private String imageToString() {
     BitmapDrawable drawable = (BitmapDrawable) imageButton.getDrawable();
     if (drawable != null) {
@@ -609,5 +619,36 @@ private String imageToString() {
         };
         queue.add(stringRequest);
     }
+    private void saveInstanceState(Bundle outState) {
+        // Save the state of your activity
+        outState.putString("brand", carBrandrSpin.getText().toString());
+        outState.putString("location", locationtxt.getText().toString());
+        outState.putString("year_model", carYearspin.getText().toString());
+        outState.putString("seats_number", seatsText.getText().toString());
+        outState.putString("transmission", carTransmition.getText().toString());
+        outState.putString("motor_fuel", carFuel.getText().toString());
+        outState.putString("offered_price", CarPrice.getText().toString());
+        outState.putString("image_uri", selectedImageUri != null ? selectedImageUri.toString() : "");
+    }
 
+    private void restoreInstanceState(Bundle savedInstanceState) {
+        // Restore the state of your activity
+        carBrandrSpin.setText(savedInstanceState.getString("brand", ""));
+        locationtxt.setText(savedInstanceState.getString("location", ""));
+        carYearspin.setText(savedInstanceState.getString("year_model", ""));
+        seatsText.setText(savedInstanceState.getString("seats_number", ""));
+        carTransmition.setText(savedInstanceState.getString("transmission", ""));
+        carFuel.setText(savedInstanceState.getString("motor_fuel", ""));
+        CarPrice.setText(savedInstanceState.getString("offered_price", ""));
+        String imageUriString = savedInstanceState.getString("image_uri", "");
+        selectedImageUri = !TextUtils.isEmpty(imageUriString) ? Uri.parse(imageUriString) : null;
+        if (selectedImageUri != null) {
+            imageButton.setImageURI(selectedImageUri);
+        }
+    }
+    private void navigateBack() {
+        Intent intent = new Intent(updatecar.this, EditCars.class);
+        startActivity(intent);
+        finish();
+    }
 }

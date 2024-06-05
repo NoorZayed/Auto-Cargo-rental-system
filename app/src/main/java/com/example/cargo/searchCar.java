@@ -168,4 +168,12 @@ public class searchCar extends AppCompatActivity {
         });
         queue.add(jsonObjectRequest);
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Fetch cars data when the activity is resumed if CarsList is empty
+        if (CarsList.isEmpty()) {
+            fetchCars();
+        }
+    }
 }

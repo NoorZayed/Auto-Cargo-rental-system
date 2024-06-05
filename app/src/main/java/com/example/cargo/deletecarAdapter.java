@@ -48,6 +48,7 @@ public class deletecarAdapter extends RecyclerView.Adapter<deletecarAdapter.CarV
     public void onBindViewHolder(@NonNull CarViewHolder holder, int position) {
         Car car = cars.get(position);
         holder.bind(car);
+
     }
 
     @Override

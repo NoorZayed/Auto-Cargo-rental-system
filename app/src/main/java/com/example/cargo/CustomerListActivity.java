@@ -38,7 +38,23 @@ public class CustomerListActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, customerList);
         customerListView.setAdapter(adapter);
 
-        fetchCustomers();
+        if (savedInstanceState == null) {
+            fetchCustomers(); // Fetch data only if savedInstanceState is null
+        } else {
+            // Restore data if savedInstanceState is not null
+            customerList = savedInstanceState.getStringArrayList("customerList");
+            if (customerList != null) {
+                adapter.addAll(customerList);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // Save data to retain across configuration changes
+        outState.putStringArrayList("customerList", customerList);
     }
 
     private void fetchCustomers() {

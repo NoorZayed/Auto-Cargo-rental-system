@@ -33,7 +33,11 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
         Car car = cars.get(position);
         holder.bind(car);
     }
-
+    public void updateList(List<Car> newCarsList) {
+        cars.clear();
+        cars.addAll(newCarsList);
+        notifyDataSetChanged();
+    }
     @Override
     public int getItemCount() {
         return cars.size();
@@ -92,5 +96,6 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
 //                 carImageView.setImageResource(R.drawable.default_car_image);
             }
         }
+
     }
 }
