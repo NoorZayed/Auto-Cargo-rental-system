@@ -14,15 +14,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class register extends AppCompatActivity {
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference colRef = db.collection("Users");
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+    private CollectionReference colRef;
      Button login ;
 
     EditText firstname_txt;
@@ -30,9 +35,7 @@ public class register extends AppCompatActivity {
     EditText email_txt;
     EditText number_txt;
     EditText password;
-    String dob_txt;
 
-    Spinner gender_spn;
     Button registration_btn;
     Button login_page_btn;
     boolean isAllChecked = false;
@@ -42,6 +45,9 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
        login= findViewById(R.id.login_page_btn);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        colRef = db.collection("Users");
 
 
         setupViews();
@@ -51,7 +57,6 @@ public class register extends AppCompatActivity {
         lastname_txt = findViewById(R.id.rlastname_txt);
         email_txt = findViewById(R.id.remail_txt);
         password = findViewById(R.id.rpassword);
-        gender_spn = findViewById(R.id.gender_spn);
         number_txt = findViewById(R.id.rnumber_txt);
 
 
@@ -65,7 +70,7 @@ public class register extends AppCompatActivity {
                 isAllChecked = checkInformation();
 
                 if (isAllChecked) {
-                    writeToDatabase();
+                    registerUser();
                 }
 
             }
@@ -75,7 +80,7 @@ public class register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(register.this ,login.class);
-                // Start the next Activity
+
                 startActivity(intent);
 
             }
@@ -122,33 +127,45 @@ public class register extends AppCompatActivity {
         return true;
     }
 
+private void registerUser() {
+    String email = email_txt.getText().toString().trim();
+    String passwordS = password.getText().toString().trim();
 
-    private void writeToDatabase() {
-        String fname =  firstname_txt.getText().toString().trim();
-        String lname =  firstname_txt.getText().toString().trim();
-        String email =  email_txt.getText().toString().trim();
-        String pass =   password.getText().toString().trim();
-        String phone =   number_txt.getText().toString().trim();
-
-        Users users = new Users(fname,lname,email,phone,pass);
-
-        colRef.add(users)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(register.this, "data added", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(register.this, welcome.class);
-                        startActivity(intent);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("Error333", e.toString());
-                    }
-                });
-
-    }
+    mAuth.createUserWithEmailAndPassword(email, passwordS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        @Override
+        public void onComplete(@NonNull Task<AuthResult> task) {
+            if (task.isSuccessful()) {
+                writeToDatabase();
+            } else {
+                Toast.makeText(register.this, "Registration failed: " + task.getException(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    });
 }
 
+        private void writeToDatabase() {
+            String fname = firstname_txt.getText().toString().trim();
+            String lname = firstname_txt.getText().toString().trim();
+            String email = email_txt.getText().toString().trim();
+            String pass = password.getText().toString().trim();
+            String phone = number_txt.getText().toString().trim();
 
+            Users users = new Users(fname, lname, email, phone, pass);
+
+            colRef.add(users)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(register.this, "Data added successfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(register.this, login.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("Error333", e.toString());
+                        }
+                    });
+        }
+    }
