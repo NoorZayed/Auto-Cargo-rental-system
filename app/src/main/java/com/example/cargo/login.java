@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.FirebaseApp;
+
 public class login extends AppCompatActivity {
     EditText email_txt;
     EditText password_txt;
@@ -20,7 +22,7 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        FirebaseApp.initializeApp(this);
         setupViews();
     }
 
@@ -41,7 +43,8 @@ public class login extends AppCompatActivity {
                         Intent intent = new Intent(login.this, welcome.class);
                         startActivity(intent);
 //                        finish();
-                    }if (email_txt.getText().toString().trim().equals("1") &&
+                    }
+                    if (email_txt.getText().toString().trim().equals("1") &&
                             password_txt.getText().toString().equals("1")) {
                         Toast.makeText(login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(login.this, adminpage.class);
@@ -111,7 +114,7 @@ public class login extends AppCompatActivity {
 
     boolean isEmail(EditText text) {
         CharSequence email_txt = text.getText().toString();
-        return (!TextUtils.isEmpty(email_txt)) ;
+        return (!TextUtils.isEmpty(email_txt));
 //                && Patterns.EMAIL_ADDRESS.matcher(email_txt).matches());
     }
 
@@ -131,4 +134,5 @@ public class login extends AppCompatActivity {
 
         return true;
     }
+
 }

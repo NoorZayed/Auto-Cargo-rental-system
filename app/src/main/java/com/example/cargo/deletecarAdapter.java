@@ -141,8 +141,8 @@ public class deletecarAdapter extends RecyclerView.Adapter<deletecarAdapter.CarV
         }
 
         private void deleteCar(final Car car) {
-          // String url = "http://192.168.1.104/android/delete.php";
-           String url = "http://192.168.68.52/android/delete.php";
+           String url = "http://192.168.1.104/android/delete.php";
+//           String url = "http://192.168.68.52/android/delete.php";
             RequestQueue queue = Volley.newRequestQueue(context);
 
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url,

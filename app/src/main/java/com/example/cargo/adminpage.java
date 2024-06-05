@@ -11,7 +11,7 @@ public class adminpage extends AppCompatActivity {
     private Button logoutb;
     private Button addb;
     private Button deleteb;
-    private Button updateb;
+    private Button cus;
     private Button carsb;
     private Button rentalb;
 
@@ -23,7 +23,7 @@ public class adminpage extends AppCompatActivity {
         logoutb = findViewById(R.id.logout_btn);
         addb = findViewById(R.id.add_btn);
         deleteb = findViewById(R.id.delete_btn);
-//        updateb = findViewById(R.id.update_btn);
+        cus = findViewById(R.id.custom_btn);
        carsb = findViewById(R.id.allcars_btn);
         rentalb = findViewById(R.id.rental_btn);
         logoutb.setOnClickListener(new View.OnClickListener() {
@@ -62,15 +62,15 @@ public class adminpage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        updateb.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
-//                Intent intent = new Intent(adminpage.this ,mainpage.class);
-//                // Start the next Activity
-//                startActivity(intent);
-//            }
-//        });
+        cus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
+                Intent intent = new Intent(adminpage.this ,CustomerListActivity.class);
+                // Start the next Activity
+                startActivity(intent);
+            }
+        });
         rentalb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -448,7 +448,8 @@ public class updatecar extends AppCompatActivity {
     }
 
     private void fetchCarDetails() {
-        String url = "http://192.168.68.52/android/get_car_details.php?car_id=" + carId;
+//        String url = "http://192.168.68.52/android/get_car_details.php?car_id=" + carId;
+        String url = "http://192.168.1.104/android/get_car_details.php?car_id=" + carId;
 
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -486,7 +487,9 @@ public class updatecar extends AppCompatActivity {
         String transmission = carTransmition.getText().toString();
         String motorFuel = carFuel.getText().toString();
         double offeredPrice = Double.parseDouble(CarPrice.getText().toString());
-        String url = "http://192.168.68.52/android/update.php";
+//        String url = "http://192.168.68.52/android/update.php";
+
+        String url = "http://192.168.1.104/android/update.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -528,13 +531,25 @@ public class updatecar extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-    private String imageToString() {
-        Bitmap bitmap = ((BitmapDrawable) imageButton.getDrawable()).getBitmap();
+//    private String imageToString() {
+//        Bitmap bitmap = ((BitmapDrawable) imageButton.getDrawable()).getBitmap();
+//        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+//        byte[] imageBytes = byteArrayOutputStream.toByteArray();
+//        return Base64.encodeToString(imageBytes, Base64.DEFAULT);
+//    }
+private String imageToString() {
+    BitmapDrawable drawable = (BitmapDrawable) imageButton.getDrawable();
+    if (drawable != null) {
+        Bitmap bitmap = drawable.getBitmap();
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
         byte[] imageBytes = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(imageBytes, Base64.DEFAULT);
     }
+    return "";
+}
+
 
     private void showConfirmationDialog() {
         new AlertDialog.Builder(this)
@@ -565,6 +580,8 @@ public class updatecar extends AppCompatActivity {
     }
 
     private void deleteCar() {
+//        String url = "http://192.168.1.104/android/delete.php";
+
         String url = "http://192.168.1.104/android/delete.php";
         RequestQueue queue = Volley.newRequestQueue(this);
 

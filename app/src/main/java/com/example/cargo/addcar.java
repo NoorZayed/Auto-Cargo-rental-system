@@ -32,8 +32,8 @@ public class addcar extends AppCompatActivity {
     private Button uploadButton, addButton;
 private Button backb;
     private static final int IMAGE_PICK_CODE = 1000;
-    //private static final String URL = "http://192.168.1.104/android/add_car.php";
-    private static final String URL = "http://192.168.68.52/android/add_car.php";
+    private static final String URL = "http://192.168.1.104/android/add_car.php";
+//    private static final String URL = "http://192.168.68.52/android/add_car.php";
 
 
     @Override

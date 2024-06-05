@@ -52,34 +52,36 @@
 
     </LinearLayout>
 
-    <!--    <Button-->
-    <!--        android:id="@+id/update_btn"-->
-    <!--        android:layout_width="161dp"-->
-    <!--        android:layout_height="120dp"-->
-    <!--        android:layout_marginStart="30dp"-->
-    <!--        android:layout_marginTop="17dp"-->
-    <!--        android:layout_marginEnd="30dp"-->
-    <!--        android:layout_marginBottom="28dp"-->
-    <!--        android:width="180dp"-->
-    <!--        android:backgroundTint="@color/material_dynamic_secondary30"-->
-    <!--        android:elegantTextHeight="true"-->
-    <!--        android:text="Update"-->
-    <!--        android:textSize="14sp"-->
-    <!--        android:textStyle="bold"-->
-    <!--        app:icon="@android:drawable/ic_menu_manage"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/rental_btn"-->
-    <!--        app:layout_constraintEnd_toStartOf="@+id/add_btn"-->
-    <!--        app:layout_constraintHorizontal_bias="0.0"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/allcars_btn" />-->
+    <Button
+        android:id="@+id/custom_btn"
+        android:layout_width="161dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="120dp"
+        android:width="180dp"
+        android:backgroundTint="@color/material_dynamic_secondary30"
+
+        android:elegantTextHeight="true"
+        android:text="Customers"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:icon="@android:drawable/ic_menu_info_details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/logout_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rental_btn"
+        app:layout_constraintVertical_bias="0.62" />
 
     <Button
         android:id="@+id/logout_btn"
         android:layout_width="158dp"
         android:layout_height="117dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="120dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
         android:elegantTextHeight="true"
@@ -89,7 +91,8 @@
         app:icon="@drawable/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/custom_btn"
+        app:layout_constraintTop_toBottomOf="@+id/add_btn"
         tools:ignore="MissingConstraints"
         tools:text="Log Out" />
 
@@ -120,16 +123,16 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="43dp"
         android:width="180dp"
         android:backgroundTint="@color/material_dynamic_secondary30"
         android:elegantTextHeight="true"
         android:text="Rental Cars"
-        android:textSize="14sp"
 
+        android:textSize="14sp"
         android:textStyle="bold"
         app:icon="@drawable/cars"
-        app:layout_constraintBottom_toTopOf="@+id/logout_btn"
+        app:layout_constraintBottom_toTopOf="@+id/custom_btn"
         app:layout_constraintEnd_toStartOf="@+id/add_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/allcars_btn"
