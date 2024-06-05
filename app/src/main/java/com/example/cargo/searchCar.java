@@ -64,9 +64,9 @@ public class searchCar extends AppCompatActivity {
 
         // Initialize the Spinner and set up the adapter with static filters
         spinnerReport = findViewById(R.id.spinnerreport);
-        String[] filters = {"Select","Most rented car", "Today car rented", "Most review", "The car most rented"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, filters);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        String[] filters = {"Select", "brand", "location", "year_model", "seats_number", "transmission", "motor_fuel", "offered_price"};        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, filters);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, filters);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerReport.setAdapter(adapter);
 
         fetchCars();
@@ -75,11 +75,14 @@ public class searchCar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String keyword = searchEditText.getText().toString().trim();
-                if (!TextUtils.isEmpty(keyword)) {
+                String filter = spinnerReport.getSelectedItem().toString();
+                if (!TextUtils.isEmpty(keyword)&& !filter.equals("Select")) {
                     CarsList.clear();
                     adapter.notifyDataSetChanged();
-                    searchCars(keyword);
+                    searchCars(keyword, filter);
                 } else {
+                    CarsList.clear();
+                    adapter.notifyDataSetChanged();
                     fetchCars();
                 }
             }
@@ -88,7 +91,7 @@ public class searchCar extends AppCompatActivity {
 
     private void fetchCars() {
         //String url = "http://192.168.1.104/android/fetch_cars.php";
-        String url = "http://192.168.68.52/android/fetch_cars.php";
+        String url = "http://192.168.68.66/android/fetch_cars.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -131,9 +134,9 @@ public class searchCar extends AppCompatActivity {
     }
 
 
-    private void searchCars(String keyword) {
-       // String url = "http://192.168.1.104/android/search.php?searchQuery=" + keyword;
-        String url = "http://192.168.68.52/android/search.php?searchQuery=" + keyword;
+    private void searchCars(String keyword,String filter) {
+       // String url = "http://192.168.1.104/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
+        String url = "http://192.168.68.66/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
