@@ -108,7 +108,7 @@ public class rentedCars extends AppCompatActivity {
                                 adapter.notifyDataSetChanged();
                             } else {
                                 Log.d(TAG, "Success is false");
-                                Toast.makeText(rentedCars.this, getString(R.string.no_cars_available), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(rentedCars.this, "no_cars_available)", Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -116,7 +116,7 @@ public class rentedCars extends AppCompatActivity {
                     }, error -> {
                 progressBar.setVisibility(View.GONE);
                 Log.e(TAG, "Error: " + error.toString());
-                Toast.makeText(rentedCars.this, getString(R.string.error_fetching_data), Toast.LENGTH_SHORT).show();
+                Toast.makeText(rentedCars.this, "getString(R.string.error_fetching_data)", Toast.LENGTH_SHORT).show();
             }
             );
             queue.add(jsonObjectRequest);

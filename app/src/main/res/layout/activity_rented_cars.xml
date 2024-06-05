@@ -24,18 +24,25 @@
 
         <TextView
             android:id="@+id/textView8"
-            style="@style/HeaderText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/rented_cars" />
+            android:gravity="center"
+            android:text="Rented Cars"
+            android:textColor="#000000"
+            android:textSize="40sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV"
-        style="@style/RecyclerViewStyle"
-        android:layout_width="380dp"
-        android:layout_height="591dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/material_dynamic_tertiary95"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

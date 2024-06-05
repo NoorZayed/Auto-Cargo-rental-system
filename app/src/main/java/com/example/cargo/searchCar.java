@@ -90,8 +90,8 @@ public class searchCar extends AppCompatActivity {
     }
 
     private void fetchCars() {
-       // String url = "http://192.168.1.104/android/fetch_cars.php";
-       String url = "http://192.168.68.66/android/fetch_cars.php";
+        String url = "http://192.168.1.104/android/fetch_cars.php";
+//       String url = "http://192.168.68.66/android/fetch_cars.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -135,8 +135,8 @@ public class searchCar extends AppCompatActivity {
 
 
     private void searchCars(String keyword, String filter) {
-    //    String url = "http://192.168.1.104/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
-        String url = "http://192.168.68.66/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
+        String url = "http://192.168.1.104/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
+//        String url = "http://192.168.68.66/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
