@@ -52,8 +52,8 @@ public class EditCars extends AppCompatActivity {
     }
 
     private void fetchCars() {
-       String url = "http://192.168.1.104/android/fetch_cars.php";
-//        String url = "http://192.168.68.52/android/fetch_cars.php";
+     //  String url = "http://192.168.1.104/android/fetch_cars.php";
+        String url = "http://192.168.68.52/android/fetch_cars.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -94,5 +94,4 @@ public class EditCars extends AppCompatActivity {
         );
         queue.add(jsonObjectRequest);
     }
-
 }
