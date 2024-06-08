@@ -33,7 +33,7 @@
                 android:textColor="#F6F0F0"
                 android:textSize="24sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/tf_pickupDate"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
@@ -51,7 +51,7 @@
                 android:textColor="#F6F5F5"
                 android:textSize="24sp" />
 
-            <TextView
+            <EditText
                 android:id="@+id/tf_dropoffDate"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"

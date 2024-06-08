@@ -93,5 +93,6 @@ public class Car {
     public void setImageBlob(String image) {
         this.image = image;
     }
+
 }
 
