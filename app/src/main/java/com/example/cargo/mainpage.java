@@ -6,39 +6,52 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class mainpage  extends AppCompatActivity {
-    private Button serbtn;
-
-    public EditText location;
+public class mainpage extends AppCompatActivity {
+    private Button serbtn ;
+    private EditText location;
+    private ImageView aboutBtn ,contactBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
+
         serbtn = findViewById(R.id.search);
+        contactBtn = findViewById(R.id.contacticon);
+        aboutBtn = findViewById(R.id.aboutIcon);
         location = findViewById(R.id.edt_pickupLocation);
 
         serbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check if location EditText is empty
                 String pickupLocation = location.getText().toString().trim();
-                if(!TextUtils.isEmpty(pickupLocation)) {
-                    // Location is provided, so fetch cars not rented and matching the provided location
-                    Intent intent = new Intent(mainpage.this, RentRecyclerView.class);
+                Intent intent = new Intent(mainpage.this, RentRecyclerView.class);
+                if (!TextUtils.isEmpty(pickupLocation)) {
                     intent.putExtra("location", pickupLocation);
-                    startActivity(intent);
-                } else {
-                    // Location is not provided, so fetch all cars not rented
-                    Intent intent = new Intent(mainpage.this, RentRecyclerView.class);
-                    startActivity(intent);
                 }
+                startActivity(intent);
             }
         });
 
+        contactBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mainpage.this, contactUs.class);
+                startActivity(intent);
+            }
+        });
+
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mainpage.this, AboutUs.class);
+                startActivity(intent);
+            }
+        });
     }
 }
