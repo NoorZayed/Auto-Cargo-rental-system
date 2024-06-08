@@ -28,6 +28,10 @@
             android:name=".rentedCars"
             android:exported="false" />
         <activity
+            android:name=".RentRecyclerView"
+            android:exported="false" />
+
+        <activity
             android:name=".Start"
             android:exported="true">
             <intent-filter>

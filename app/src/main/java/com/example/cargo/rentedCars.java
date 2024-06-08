@@ -52,7 +52,7 @@ public class rentedCars extends AppCompatActivity {
 
 private void fetchRentedCars() {
    // String url = "http://192.168.1.104/android/rented.php";
-    String url = "http://192.168.68.52/android/rented.php";
+    String url = "http://192.168.88.13/android/rented.php";
     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
             new Response.Listener<JSONObject>() {
                 @Override

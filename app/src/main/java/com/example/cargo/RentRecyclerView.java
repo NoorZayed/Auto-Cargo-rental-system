@@ -25,39 +25,40 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditCars extends AppCompatActivity {
+public class RentRecyclerView extends AppCompatActivity {
     private RequestQueue queue;
     private RecyclerView RV;
-    private updatecarAdapter adapter;
+    private RentCardView adapter;
     private List<Car> carsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_edit_cars);
+        setContentView(R.layout.recycler_view);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         RV = findViewById(R.id.RV);
         queue = Volley.newRequestQueue(this);
         RV.setLayoutManager(new LinearLayoutManager(this));
         carsList = new ArrayList<>();
-        adapter = new updatecarAdapter(carsList, this);
+        adapter = new RentCardView(carsList, this); // Updated to use RentCardView
         RV.setAdapter(adapter);
         fetchCars();
-    }
 
+    }
     private void fetchCars() {
-     //  String url = "http://192.168.1.104/android/fetch_cars.php";
-        String url = "http://192.168.88.13/android/fetch_cars.php";
+        String url = "http://192.168.88.13/android/fetch_cars_rented.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        Log.d("fetchCars", "Response received");  // Add logging
                         try {
                             boolean success = response.getBoolean("success");
                             if (success) {
@@ -83,15 +84,17 @@ public class EditCars extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Log.d("fetchCars", "Error in JSON parsing: " + e.getMessage());
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("fetchCars", "Error: " + error.toString());
+                error.printStackTrace();
+                Log.d("fetchCars", "Error in request: " + error.getMessage());
             }
-        }
-        );
+        });
         queue.add(jsonObjectRequest);
     }
+
 }

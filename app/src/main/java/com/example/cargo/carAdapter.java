@@ -15,7 +15,7 @@ import java.util.List;
 
 public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
 
-    private List<Car> cars;
+    protected List<Car> cars;
 
     public carAdapter(List<Car> cars) {
         this.cars = cars;
@@ -33,26 +33,28 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
         Car car = cars.get(position);
         holder.bind(car);
     }
+
     public void updateList(List<Car> newCarsList) {
         cars.clear();
         cars.addAll(newCarsList);
         notifyDataSetChanged();
     }
+
     @Override
     public int getItemCount() {
         return cars.size();
     }
 
-    static class CarViewHolder extends RecyclerView.ViewHolder {
-        private TextView car_id;
-        private TextView brandTextView;
-        private TextView locationTextView;
-        private TextView yearModelTextView;
-        private TextView seatsNumberTextView;
-        private TextView transmissionTextView;
-        private TextView motorFuelTextView;
-        private TextView offeredPriceTextView;
-        private ImageView carImageView;
+    protected static class CarViewHolder extends RecyclerView.ViewHolder {
+        protected TextView car_id;
+        protected TextView brandTextView;
+        protected TextView locationTextView;
+        protected TextView yearModelTextView;
+        protected TextView seatsNumberTextView;
+        protected TextView transmissionTextView;
+        protected TextView motorFuelTextView;
+        protected TextView offeredPriceTextView;
+        protected ImageView carImageView;
 
         public CarViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,7 +70,7 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
         }
 
         public void bind(Car car) {
-            car_id.setText("ID: "+car.getId());
+            car_id.setText("ID: " + car.getId());
             brandTextView.setText("Brand: " + car.getBrand());
             locationTextView.setText("Location: " + car.getLocation());
             yearModelTextView.setText("Year Model: " + car.getYearModel());
@@ -77,25 +79,12 @@ public class carAdapter extends RecyclerView.Adapter<carAdapter.CarViewHolder> {
             motorFuelTextView.setText("Motor Fuel: " + car.getMotorFuel());
             offeredPriceTextView.setText("Offered Price: " + car.getOfferedPrice());
 
-            // Load image using BitmapFactory
-//            String imagePath = car.getImage();
-//            if (imagePath != null) {
-//                Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-//                carImageView.setImageBitmap(bitmap);
-//            } else {
-//                // Set default image if no image available
-//                //carImageView.setImageResource(R.drawable.default_car_image);
-//            }
             String imageUrl = car.getImage();
             if (imageUrl != null) {
                 Glide.with(itemView.getContext())
                         .load(imageUrl)
                         .into(carImageView);
-            } else {
-                // Set default image if no image available
-//                 carImageView.setImageResource(R.drawable.default_car_image);
             }
         }
-
     }
 }

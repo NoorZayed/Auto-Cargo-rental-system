@@ -466,7 +466,7 @@ public class updatecar extends AppCompatActivity {
 
     private void fetchCarDetails() {
 //        String url = "http://192.168.68.52/android/get_car_details.php?car_id=" + carId;
-        String url = "http://192.168.1.104/android/get_car_details.php?car_id=" + carId;
+        String url = "http://192.168.88.13/android/get_car_details.php?car_id=" + carId;
 
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -506,7 +506,7 @@ public class updatecar extends AppCompatActivity {
         double offeredPrice = Double.parseDouble(CarPrice.getText().toString());
 //        String url = "http://192.168.68.52/android/update.php";
 
-        String url = "http://192.168.1.104/android/update.php";
+        String url = "http://192.168.88.13/android/update.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -592,7 +592,7 @@ private String imageToString() {
     private void deleteCar() {
 //        String url = "http://192.168.1.104/android/delete.php";
 
-        String url = "http://192.168.1.104/android/delete.php";
+        String url = "http://192.168.88.13/android/delete.php";
         RequestQueue queue = Volley.newRequestQueue(this);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -647,7 +647,7 @@ private String imageToString() {
         }
     }
     private void navigateBack() {
-        Intent intent = new Intent(updatecar.this, EditCars.class);
+        Intent intent = new Intent(updatecar.this, RentRecyclerView.class);
         startActivity(intent);
         finish();
     }
