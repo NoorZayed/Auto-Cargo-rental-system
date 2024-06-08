@@ -1,4 +1,3 @@
-// RentCardView.java
 package com.example.cargo;
 
 import android.content.Context;
@@ -56,7 +55,7 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
         return cars.size();
     }
 
-    static class CarViewHolder extends RecyclerView.ViewHolder {
+    class CarViewHolder extends RecyclerView.ViewHolder {
         private TextView car_id;
         private TextView brandTextView;
         private TextView locationTextView;
@@ -80,7 +79,6 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
             offeredPriceTextView = itemView.findViewById(R.id.carPrice);
             carImageView = itemView.findViewById(R.id.carImage);
             rentButton = itemView.findViewById(R.id.rentButton);
-
         }
 
         public void bind(Car car) {
@@ -103,13 +101,13 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
             rentButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    rentCar(car.getId());
-
+                    rentCar(getAdapterPosition());
                 }
             });
         }
 
-        private void rentCar(int carId) {
+        private void rentCar(int position) {
+            int carId = cars.get(position).getId();
             String url = "http://192.168.88.13/android/update_car_status.php?id=" + carId + "&rented=1";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONObject>() {
@@ -119,6 +117,9 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
                                 boolean success = response.getBoolean("success");
                                 String message = response.getString("message");
                                 if (success) {
+                                    // Remove the car from the list and notify the adapter
+                                    cars.remove(position);
+                                    notifyItemRemoved(position);
                                     Toast.makeText(itemView.getContext(), message, Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(itemView.getContext(), message, Toast.LENGTH_SHORT).show();
@@ -133,7 +134,6 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
                     error.printStackTrace();
                     Log.e("RentCardView", "Error response: " + error.getMessage());
                 }
-
             });
             queue.add(jsonObjectRequest);
         }
