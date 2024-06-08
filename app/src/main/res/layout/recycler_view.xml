@@ -3,14 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/recycler_background"
     tools:context=".RentRecyclerView"
     android:id="@+id/main">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Available Cars"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:fontFamily="sans-serif-light"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="16dp"
+        android:layout_below="@id/textView8"
         android:scrollbars="vertical" />
 
 </RelativeLayout>

@@ -72,6 +72,7 @@
                     android:layout_below="@id/carPrice"
                     android:layout_toEndOf="@id/carImage"
                     android:text="Rent Now"
+                    android:backgroundTint="#1A8C1F"
 
                     android:textColor="@android:color/white"
                     android:layout_marginTop="8dp"/>

@@ -1,6 +1,7 @@
 package com.example.cargo;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -101,13 +103,26 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
             rentButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    rentCar(getAdapterPosition());
+                    showConfirmationDialog(car.getId(), getAdapterPosition());
                 }
             });
         }
 
-        private void rentCar(int position) {
-            int carId = cars.get(position).getId();
+        private void showConfirmationDialog(int carId, int position) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
+            builder.setTitle("Rent Confirmation")
+                    .setMessage("Are you sure you want to rent this car?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            rentCar(carId, position);
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        }
+
+        private void rentCar(int carId, int position) {
             String url = "http://192.168.88.13/android/update_car_status.php?id=" + carId + "&rented=1";
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONObject>() {

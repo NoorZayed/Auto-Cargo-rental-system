@@ -14,14 +14,14 @@ public class mainpage  extends AppCompatActivity {
     private Button serbtn;
 
     public EditText location;
-    public EditText date_for;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
         serbtn = findViewById(R.id.search);
         location = findViewById(R.id.edt_pickupLocation);
-        date_for = findViewById(R.id.tf_dropoffDate);
+
         serbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
