@@ -25,11 +25,7 @@ public class contactUs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
+
         menu_feedback = findViewById(R.id.menu_feedback);
         menu_homep = findViewById(R.id.menu_homep);
         menu_about = findViewById(R.id.menu_about);

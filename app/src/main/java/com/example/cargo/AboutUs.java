@@ -1,6 +1,9 @@
 package com.example.cargo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class AboutUs extends AppCompatActivity {
-
+    private ImageView aboutBtn ,contactBtn ,homeBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +22,29 @@ public class AboutUs extends AppCompatActivity {
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
 //            return insets;
 //        });
+        contactBtn = findViewById(R.id.contacticon);
+        aboutBtn = findViewById(R.id.aboutIcon);
+        homeBtn = findViewById(R.id.homepic);
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AboutUs.this, AboutUs.class);
+                startActivity(intent);
+            }
+        });
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AboutUs.this, mainpage.class);
+                startActivity(intent);
+            }
+        });
+        contactBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AboutUs.this, contactUs.class);
+                startActivity(intent);
+            }
+        });
     }
 }

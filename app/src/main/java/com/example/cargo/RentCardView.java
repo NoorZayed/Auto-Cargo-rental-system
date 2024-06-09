@@ -1,5 +1,6 @@
 package com.example.cargo;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,9 @@ import com.bumptech.glide.Glide;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Calendar;
 import java.util.List;
 
 public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolder> {
@@ -103,27 +108,43 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
             rentButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showConfirmationDialog(car.getId(), getAdapterPosition());
+                    showDatePickers(car.getId(), getAdapterPosition());
                 }
             });
         }
 
-        private void showConfirmationDialog(int carId, int position) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
-            builder.setTitle("Rent Confirmation")
-                    .setMessage("Are you sure you want to rent this car?")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        private void showDatePickers(int carId, int position) {
+            final Calendar calendar = Calendar.getInstance();
+
+            DatePickerDialog.OnDateSetListener pickupDateSetListener = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                    String pickupDate = year + "-" + (month + 1) + "-" + dayOfMonth;
+
+                    DatePickerDialog dropDatePickerDialog = new DatePickerDialog(itemView.getContext(), new DatePickerDialog.OnDateSetListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            rentCar(carId, position);
+                        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                            String dropDate = year + "-" + (month + 1) + "-" + dayOfMonth;
+                            // Call rentCar method with these dates
+                            rentCar(carId, pickupDate, dropDate, position);
                         }
-                    })
-                    .setNegativeButton("No", null)
-                    .show();
+                    }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+
+                    dropDatePickerDialog.show();
+                }
+            };
+
+            DatePickerDialog pickupDatePickerDialog = new DatePickerDialog(itemView.getContext(), pickupDateSetListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            pickupDatePickerDialog.show();
         }
 
-        private void rentCar(int carId, int position) {
-            String url = "http://192.168.88.13/android/update_car_status.php?id=" + carId + "&rented=1";
+        private void rentCar(int carId, String pickupDate, String dropDate, int position) {
+            String url = null;
+            try {
+                url = "http://192.168.88.13/android/update_car_status.php?id=" + carId + "&rented=1&date_rental=" + URLEncoder.encode(pickupDate, "UTF-8") + "&drop_date=" + URLEncoder.encode(dropDate, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                     new Response.Listener<JSONObject>() {
                         @Override

@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="About Cargo"
-            android:textColor="@color/design_default_color_primary_dark"
+            android:textColor="@color/red"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -49,7 +49,7 @@ Today, Cargo stands tall as a trailblazer in the car rental industry, setting ne
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:text="Contact Us"
-            android:textColor="@color/design_default_color_primary_dark"
+            android:textColor="@color/red"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -80,7 +80,11 @@ Today, Cargo stands tall as a trailblazer in the car rental industry, setting ne
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="8dp"
-            android:background="#00668B">
+            android:background="#D3130E"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
 
             <LinearLayout
                 android:id="@+id/menu_homep"
@@ -103,7 +107,7 @@ Today, Cargo stands tall as a trailblazer in the car rental industry, setting ne
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Home"
-                    android:textColor="#F1EAEA" />
+                    android:textColor="#F6F4F4" />
             </LinearLayout>
 
             <LinearLayout
@@ -135,7 +139,7 @@ Today, Cargo stands tall as a trailblazer in the car rental industry, setting ne
             <LinearLayout
                 android:id="@+id/menu_about"
                 android:layout_width="83dp"
-                android:layout_height="63dp"
+                android:layout_height="70dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/menu_contact"
@@ -145,9 +149,9 @@ Today, Cargo stands tall as a trailblazer in the car rental industry, setting ne
                 <ImageView
                     android:id="@+id/aboutIcon"
                     android:layout_width="54dp"
-                    android:layout_height="45dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/aboutus" />
+                    app:srcCompat="@android:drawable/ic_menu_search" />
 
                 <TextView
                     android:id="@+id/aboutText"
@@ -172,7 +176,7 @@ Today, Cargo stands tall as a trailblazer in the car rental industry, setting ne
                     android:layout_height="39dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    app:srcCompat="@drawable/coicon" />
+                    app:srcCompat="@android:drawable/ic_dialog_email" />
 
                 <TextView
                     android:id="@+id/contactText"

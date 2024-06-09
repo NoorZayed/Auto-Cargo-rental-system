@@ -45,12 +45,14 @@
             android:textColor="#F8F7F7"
             android:textSize="20sp" />
 
+
+
         <Button
 
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="30dp"
             android:width="180dp"
             android:backgroundTint="@color/black"
             android:elegantTextHeight="true"
@@ -123,14 +125,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:background="#D3130E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:layout_alignParentBottom="true"
+       >
         <LinearLayout
             android:id="@+id/menu_homep"
             android:layout_width="83dp"
