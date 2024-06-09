@@ -2,7 +2,7 @@ package com.example.cargo;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -37,11 +36,13 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
     private List<Car> cars;
     private Context context;
     private static RequestQueue queue;
+    private SharedPreferences sharedPreferences;
 
     public RentCardView(List<Car> cars, Context context) {
         this.cars = cars;
         this.context = context;
         this.queue = Volley.newRequestQueue(context);
+        this.sharedPreferences = context.getSharedPreferences("rent_prefs", Context.MODE_PRIVATE);
     }
 
     @NonNull
@@ -120,12 +121,13 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                     String pickupDate = year + "-" + (month + 1) + "-" + dayOfMonth;
+                    saveDate("pickup_date", pickupDate);
 
                     DatePickerDialog dropDatePickerDialog = new DatePickerDialog(itemView.getContext(), new DatePickerDialog.OnDateSetListener() {
                         @Override
                         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                             String dropDate = year + "-" + (month + 1) + "-" + dayOfMonth;
-                            // Call rentCar method with these dates
+                            saveDate("drop_date", dropDate);
                             rentCar(carId, pickupDate, dropDate, position);
                         }
                     }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
@@ -172,6 +174,12 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
                 }
             });
             queue.add(jsonObjectRequest);
+        }
+
+        private void saveDate(String key, String date) {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString(key, date);
+            editor.apply();
         }
     }
 }
