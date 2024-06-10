@@ -103,7 +103,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
-        android:background="#D3130E">
+        android:background="@drawable/rounded_background"
+
+        >
 
 
         <LinearLayout
