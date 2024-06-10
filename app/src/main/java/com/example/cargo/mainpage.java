@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class mainpage extends AppCompatActivity {
     private Button serbtn,contact;
     private EditText edit_pickupLocation;
-    private ImageView aboutBtn, contactBtn, homeBtn;
+    private ImageView aboutBtn, contactBtn, homeBtn,logout;
     private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class mainpage extends AppCompatActivity {
         aboutBtn = findViewById(R.id.aboutIcon);
         homeBtn = findViewById(R.id.homepic);
         edit_pickupLocation = findViewById(R.id.edt_pickupLocation);
-
+        logout = findViewById(R.id.logout);
         setupListeners();
     }
 
@@ -85,6 +85,15 @@ public class mainpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mainpage.this, contactUs.class);
+                startActivity(intent);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
+                Intent intent = new Intent(mainpage.this ,login.class);
+                // Start the next Activity
                 startActivity(intent);
             }
         });
