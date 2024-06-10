@@ -9,7 +9,7 @@ public class Car {
     private String motorFuel;
     private double offeredPrice;
     private String image;
-
+    private byte isRented;
     public Car(int id, String brand, String location, int yearModel, int seatsNumber, String transmission, String motorFuel, double offeredPrice, String image) {
         this.id = id;
         this.brand = brand;
@@ -36,6 +36,14 @@ public class Car {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public byte getIsRented() {
+        return isRented;
+    }
+
+    public void setIsRented(byte isRented) {
+        this.isRented = isRented;
     }
 
     public String getLocation() {
@@ -93,5 +101,6 @@ public class Car {
     public void setImageBlob(String image) {
         this.image = image;
     }
+
 }
 

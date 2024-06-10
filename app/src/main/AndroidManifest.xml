@@ -28,6 +28,10 @@
             android:name=".rentedCars"
             android:exported="false" />
         <activity
+            android:name=".RentRecyclerView"
+            android:exported="false" />
+
+        <activity
             android:name=".Start"
             android:exported="true">
             <intent-filter>
@@ -36,6 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".contactUs"></activity>
         <activity android:name=".login" />
         <activity android:name=".welcome" />
         <activity android:name=".mainpage" />

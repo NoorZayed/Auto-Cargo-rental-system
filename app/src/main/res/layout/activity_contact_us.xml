@@ -103,7 +103,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
-        android:background="#00668B">
+        android:background="#D3130E">
+
 
         <LinearLayout
             android:id="@+id/menu_homep"
@@ -126,9 +127,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Home"
-                android:textColor="#F1EAEA" />
+                android:textColor="#F6F4F4" />
         </LinearLayout>
-
         <LinearLayout
             android:id="@+id/menu_feedback"
             android:layout_width="83dp"
@@ -158,7 +158,7 @@
         <LinearLayout
             android:id="@+id/menu_about"
             android:layout_width="83dp"
-            android:layout_height="63dp"
+            android:layout_height="70dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/menu_contact"
@@ -168,9 +168,9 @@
             <ImageView
                 android:id="@+id/aboutIcon"
                 android:layout_width="54dp"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/aboutus" />
+                app:srcCompat="@android:drawable/ic_menu_search" />
 
             <TextView
                 android:id="@+id/aboutText"
@@ -195,7 +195,7 @@
                 android:layout_height="39dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/coicon" />
+                app:srcCompat="@android:drawable/ic_dialog_email" />
 
             <TextView
                 android:id="@+id/contactText"

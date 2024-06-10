@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">cargo</string>
     <string name="customers">Customers:</string>
+    <string name="brand">Brand</string>
+    <string name="details">Details</string>
+    <string name="price">Price</string>
+    <string name="todo">TODO</string>
+    <string name="rent_now">Rent Now</string>
     <!-- Other strings -->
     <string-array name="car_filters">
         <item>Most rented car</item>
