@@ -1,5 +1,6 @@
 package com.example.cargo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -36,6 +37,7 @@ public class searchCar extends AppCompatActivity {
     private RecyclerView RV;
     private carAdapter adapter;
     private List<Car> CarsList;
+    private Button viewReportButton;
 
     private EditText searchEditText;
     private Button searchButton;
@@ -87,10 +89,20 @@ public class searchCar extends AppCompatActivity {
                 }
             }
         });
+        viewReportButton = findViewById(R.id.viewReportButton);
+
+        viewReportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(searchCar.this, ReportActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void fetchCars() {
-        String url = "http://192.168.88.13/android/fetch_cars.php";
+        String url = "http://192.168.1.104/android/fetch_cars.php";
 //       String url = "http://192.168.68.66/android/fetch_cars.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -135,7 +147,7 @@ public class searchCar extends AppCompatActivity {
 
 
     private void searchCars(String keyword, String filter) {
-        String url = "http://192.168.88.13/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
+        String url = "http://192.168.1.104/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
 //        String url = "http://192.168.68.66/android/search.php?searchQuery=" + keyword + "&filter=" + filter;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

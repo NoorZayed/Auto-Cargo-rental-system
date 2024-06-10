@@ -5,24 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@drawable/add"
     android:padding="16dp"
     tools:context=".searchCar">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="377dp"
-        android:layout_height="154dp"
+        android:layout_width="401dp"
+        android:layout_height="197dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="2dp"
-        android:background="@color/white"
+        android:background="#3D041E"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/RV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -34,7 +34,7 @@
             android:gravity="center"
             android:paddingBottom="16dp"
             android:text="Search Cars"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -59,25 +59,42 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:backgroundTint="#03A9F4"
+                android:backgroundTint="@color/orange"
                 android:text="Search"
                 app:icon="@android:drawable/ic_search_category_default" />
 
         </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spinnerreport"
-            android:layout_width="229dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:minHeight="48dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinnerreport"
+                android:layout_width="229dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/viewReportButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FF5722"
+                android:text="View Report"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV"
-        android:layout_width="371dp"
-        android:layout_height="562dp"
+        android:layout_width="363dp"
+        android:layout_height="483dp"
         android:layout_gravity="center"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
