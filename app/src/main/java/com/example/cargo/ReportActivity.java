@@ -52,7 +52,7 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     private void fetchCarDetails() {
-        String url = "http://192.168.1.104/android/fetch_cars.php";
+        String url = "http://192.168.88.13/android/fetch_cars.php";
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
