@@ -13,18 +13,17 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class mainpage extends AppCompatActivity {
-    private Button serbtn;
+    private Button serbtn,contact;
     private EditText edit_pickupLocation;
     private ImageView aboutBtn, contactBtn, homeBtn;
     private SharedPreferences sharedPreferences;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
 
         sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
-
+        contact = findViewById(R.id.contact);
         serbtn = findViewById(R.id.search);
         contactBtn = findViewById(R.id.contacticon);
         aboutBtn = findViewById(R.id.aboutIcon);
@@ -76,6 +75,13 @@ public class mainpage extends AppCompatActivity {
         });
 
         contactBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mainpage.this, contactUs.class);
+                startActivity(intent);
+            }
+        });
+        contact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mainpage.this, contactUs.class);
