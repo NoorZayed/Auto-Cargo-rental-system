@@ -21,7 +21,7 @@ public class contactUs extends AppCompatActivity {
     private LinearLayout menu_contact;
     private SharedPreferences sharedPreferences;
   private  TextView emailTextView ,phoneTextView;
-    private ImageView aboutBtn;;
+    private ImageView aboutBtn,logout;;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,7 @@ public class contactUs extends AppCompatActivity {
         phoneTextView = findViewById(R.id.textView5);
         emailTextView = findViewById(R.id.textView4);
         aboutBtn = findViewById(R.id.aboutIcon);
+        logout = findViewById(R.id.logout);
     }
 
 
@@ -81,6 +82,15 @@ public class contactUs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(contactUs.this, AboutUs.class));
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
+                Intent intent = new Intent(contactUs.this ,login.class);
+                // Start the next Activity
+                startActivity(intent);
             }
         });
     }

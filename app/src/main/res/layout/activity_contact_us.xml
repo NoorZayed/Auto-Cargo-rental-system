@@ -217,12 +217,12 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/accountIcon"
+                android:id="@+id/logout"
                 android:layout_width="46dp"
                 android:layout_height="37dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/moreicon" />
+                app:srcCompat="@drawable/logout" />
 
             <TextView
                 android:id="@+id/moreText"
