@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/firstNameButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:text="First Name"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/lastNameButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstNameButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:text="Last Name"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/emailButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lastNameButton"
+        android:text="Email"
+        android:textSize="18sp"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/passwordButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailButton"
+        android:text="Password"
+        android:textSize="18sp"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/phoneNumberButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordButton"
+        android:text="Phone Number"
+        android:textSize="18sp"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:background="@drawable/button_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
