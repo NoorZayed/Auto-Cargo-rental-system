@@ -50,6 +50,9 @@
         <activity android:name=".updatecar" />
         <activity android:name=".addcar" />
         <activity android:name=".CustomerListActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".UpdateActivity" />
+
 
 
     </application>

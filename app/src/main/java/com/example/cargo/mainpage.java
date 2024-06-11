@@ -9,13 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.content.DialogInterface;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class mainpage extends AppCompatActivity {
     private Button serbtn,contact;
     private EditText edit_pickupLocation;
-    private ImageView aboutBtn, contactBtn, homeBtn;
+    private ImageView aboutBtn, contactBtn, homeBtn, moreBtn;
     private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class mainpage extends AppCompatActivity {
         aboutBtn = findViewById(R.id.aboutIcon);
         homeBtn = findViewById(R.id.homepic);
         edit_pickupLocation = findViewById(R.id.edt_pickupLocation);
+        moreBtn = findViewById(R.id.accountIcon); // Assuming accountIcon is the "more" icon
 
         setupListeners();
     }
@@ -88,6 +93,13 @@ public class mainpage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        moreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMoreOptionsDialog();
+            }
+        });
     }
 
     private void savePickupLocation() {
@@ -102,5 +114,54 @@ public class mainpage extends AppCompatActivity {
         if (!TextUtils.isEmpty(lastPickupLocation)) {
             edit_pickupLocation.setText(lastPickupLocation);
         }
+    }
+
+    private void showMoreOptionsDialog() {
+        CharSequence[] options = {"Settings", "Profile", "Logout"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("More Options");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0: // Settings
+                        Intent settingsIntent = new Intent(mainpage.this, SettingsActivity.class);
+                        startActivity(settingsIntent);
+                        break;
+                    case 1: // Profile
+                        Intent profileIntent = new Intent(mainpage.this, ProfileActivity.class);
+                        startActivity(profileIntent);
+                        break;
+                    case 2: // Logout
+                        showLogoutConfirmationDialog();
+                        break;
+                }
+            }
+        });
+        builder.show();
+    }
+
+    private void showLogoutConfirmationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Clear session data or perform logout actions
+                // For now, let's just navigate back to the login page
+                Intent loginIntent = new Intent(mainpage.this, login.class);
+                loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(loginIntent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss(); // Dismiss the dialog
+            }
+        });
+        builder.show();
     }
 }
