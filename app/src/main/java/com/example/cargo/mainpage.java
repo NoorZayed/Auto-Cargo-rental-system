@@ -3,18 +3,27 @@ package com.example.cargo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.content.DialogInterface;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 public class mainpage extends AppCompatActivity {
     private Button serbtn,contact;
@@ -118,6 +127,11 @@ public class mainpage extends AppCompatActivity {
 
     private void showMoreOptionsDialog() {
         CharSequence[] options = {"Settings", "Profile", "Logout"};
+        final Drawable[] icons = {
+                getResources().getDrawable(R.drawable.ic_settings),
+                getResources().getDrawable(R.drawable.profile),
+                getResources().getDrawable(R.drawable.logout)
+        };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("More Options");
@@ -139,8 +153,38 @@ public class mainpage extends AppCompatActivity {
                 }
             }
         });
-        builder.show();
+
+        // Customize the AlertDialog appearance
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+        // Change dialog width
+        alertDialog.getWindow().setLayout(1000, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        // Change font color and style
+        alertDialog.getListView().setBackgroundColor(Color.RED);
+        alertDialog.getListView().setDivider(new ColorDrawable(Color.WHITE));
+        alertDialog.getListView().setDividerHeight(2);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_list_item_1, options) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView textView = view.findViewById(android.R.id.text1);
+                textView.setTextColor(Color.WHITE);
+
+                // Set icon
+                Drawable icon = icons[position];
+                if (icon != null) {
+                    int iconSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()); // Change 24 to your desired icon size
+                    icon.setBounds(0, 0, iconSize, iconSize);
+                    textView.setCompoundDrawables(icon, null, null, null);
+                }
+                return view;
+            }
+        };
+        alertDialog.getListView().setAdapter(adapter);
     }
+
 
     private void showLogoutConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
