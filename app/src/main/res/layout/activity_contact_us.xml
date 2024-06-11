@@ -103,7 +103,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="8dp"
-        android:background="#D3130E">
+        android:background="@drawable/rounded_background"
+
+        >
 
 
         <LinearLayout
@@ -215,12 +217,12 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/accountIcon"
+                android:id="@+id/logout"
                 android:layout_width="46dp"
                 android:layout_height="37dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/moreicon" />
+                app:srcCompat="@drawable/logout" />
 
             <TextView
                 android:id="@+id/moreText"

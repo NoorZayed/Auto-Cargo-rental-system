@@ -37,6 +37,7 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore:24.2.0")
     implementation ("com.google.firebase:firebase-core:21.1.0")
     implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("androidx.cardview:cardview:1.0.0")
 
     implementation(libs.appcompat)
     implementation(libs.material)

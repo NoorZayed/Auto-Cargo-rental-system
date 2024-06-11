@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@drawable/add"
     tools:context=".rentedCars">
 
     <LinearLayout
@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:background="@color/white"
+        android:background="#3D041E"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@id/RV"
@@ -29,7 +29,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Rented Cars"
-            android:textColor="#000000"
+            android:textColor="#F4F3F3"
             android:textSize="40sp" />
     </LinearLayout>
 
@@ -41,7 +41,8 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="20dp"
-        android:background="@color/material_dynamic_tertiary95"
+        android:background="@drawable/rounded_listview_background"
+        android:padding="15dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

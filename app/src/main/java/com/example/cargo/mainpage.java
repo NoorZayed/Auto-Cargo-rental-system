@@ -22,14 +22,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 public class mainpage extends AppCompatActivity {
-    private Button serbtn,contact;
+    private Button serbtn, contact, moreBtn; // Changed logout to moreBtn
     private EditText edit_pickupLocation;
-    private ImageView aboutBtn, contactBtn, homeBtn, moreBtn;
+    private ImageView aboutBtn, contactBtn, homeBtn; // Removed logout
     private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +40,7 @@ public class mainpage extends AppCompatActivity {
         aboutBtn = findViewById(R.id.aboutIcon);
         homeBtn = findViewById(R.id.homepic);
         edit_pickupLocation = findViewById(R.id.edt_pickupLocation);
-        moreBtn = findViewById(R.id.accountIcon); // Assuming accountIcon is the "more" icon
-
+        moreBtn = findViewById(R.id.accountIcon); // Changed to more button
         setupListeners();
     }
 
@@ -103,7 +100,7 @@ public class mainpage extends AppCompatActivity {
             }
         });
 
-        moreBtn.setOnClickListener(new View.OnClickListener() {
+        moreBtn.setOnClickListener(new View.OnClickListener() { // Updated click listener to handle more options
             @Override
             public void onClick(View v) {
                 showMoreOptionsDialog();

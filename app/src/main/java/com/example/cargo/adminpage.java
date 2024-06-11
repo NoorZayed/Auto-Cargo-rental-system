@@ -57,7 +57,7 @@ public class adminpage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
-                Intent intent = new Intent(adminpage.this , RentRecyclerView.class);
+                Intent intent = new Intent(adminpage.this , EditCars.class);
                 // Start the next Activity
                 startActivity(intent);
             }

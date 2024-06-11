@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/admin"
+    android:background="@drawable/mainn"
     tools:context=".addcar">
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_marginStart="128dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="#2E4644"
+        android:backgroundTint="#B95952"
         android:text="Upload "
         app:icon="@android:drawable/ic_menu_upload"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
@@ -53,7 +53,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="96dp"
-        android:background="#353A3A"
+        android:background="#F7792339"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
@@ -285,7 +285,7 @@
             android:layout_marginTop="22dp"
             android:layout_marginEnd="111dp"
             android:layout_marginBottom="26dp"
-            android:backgroundTint="#2E4644"
+            android:backgroundTint="#85211A"
             android:minHeight="48dp"
             android:text="Add"
             app:icon="@drawable/q" />
@@ -295,7 +295,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:backgroundTint="#2E4644"
+            android:backgroundTint="#85211A"
             android:text="Back"
             app:icon="@android:drawable/ic_media_rew" />
     </LinearLayout>

@@ -110,7 +110,7 @@
             android:layout_marginStart="228dp"
             android:layout_marginTop="17dp"
             android:layout_marginEnd="30dp"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="@color/orange"
             android:text="Update"
             android:textColor="#FFFFFF"
             android:textColorLink="#000000"

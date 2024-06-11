@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_tertiary95"
+    android:background="@drawable/redd"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -25,8 +25,8 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginEnd="16dp"
-            android:scaleType="centerCrop"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:scaleType="centerCrop" />
 
         <Button
             android:id="@+id/button"
@@ -36,7 +36,7 @@
             android:layout_marginTop="80dp"
             android:layout_marginEnd="30dp"
             android:layout_weight="1"
-            android:backgroundTint="#47C4FD"
+            android:backgroundTint="@color/orange"
             android:text="Upload Image"
             app:icon="@android:drawable/stat_sys_upload" />
     </LinearLayout>
@@ -45,6 +45,7 @@
         android:id="@+id/carBrandrSpin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="Brand"
         android:inputType="text"
         android:minHeight="48dp"
@@ -54,6 +55,7 @@
         android:id="@+id/locationtxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="Location"
         android:inputType="text"
         android:minHeight="48dp"
@@ -63,6 +65,7 @@
         android:id="@+id/carYearspin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="Year Model"
         android:inputType="number"
         android:minHeight="48dp"
@@ -72,6 +75,7 @@
         android:id="@+id/seatsText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="Seats Number"
         android:inputType="number"
         android:minHeight="48dp"
@@ -81,6 +85,7 @@
         android:id="@+id/carTransmition"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="Transmission"
         android:inputType="text"
         android:minHeight="48dp"
@@ -90,6 +95,7 @@
         android:id="@+id/carFuel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="Motor Fuel"
         android:inputType="text"
         android:minHeight="48dp"
@@ -99,6 +105,7 @@
         android:id="@+id/CarPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:hint="Offered Price"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
@@ -114,31 +121,39 @@
         android:text="Update"
         android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="142dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/design_default_color_error"
-        android:text="Delete"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#000000"
-        app:icon="@android:drawable/ic_menu_delete"
-        app:strokeColor="#0E0D0D" />
-    <Button
-        android:id="@+id/back"
-        android:layout_width="142dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="#686767"
-        android:text="Back"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#000000"
-        app:icon="@android:drawable/ic_media_rew"
-        app:strokeColor="#0E0D0D" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#686767"
+            android:minHeight="48dp"
+            android:text="Back"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#000000"
+            app:icon="@android:drawable/ic_media_rew"
+            app:strokeColor="#0E0D0D" />
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="@color/design_default_color_error"
+            android:text="Delete"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#000000"
+            app:icon="@android:drawable/ic_menu_delete"
+            app:strokeColor="#0E0D0D" />
+    </LinearLayout>
 
 </LinearLayout>
