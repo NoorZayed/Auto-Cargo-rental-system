@@ -6,6 +6,19 @@
     android:background="#FFFFFF"
     android:gravity="center">
 
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Edit Account"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:padding="16dp" />
+
     <Button
         android:id="@+id/firstNameButton"
         android:layout_width="match_parent"

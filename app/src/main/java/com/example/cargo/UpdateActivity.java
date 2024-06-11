@@ -48,7 +48,7 @@ public class UpdateActivity extends AppCompatActivity {
         updateButton = findViewById(R.id.updateButton);
         Intent intent = getIntent();
         String  title1 = intent.getStringExtra("field" );
-        title.setText(title1);
+        title.setText("Change "+title1);
 
 
 
