@@ -15,6 +15,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         // Find TextViews
+        TextView titleTextView = findViewById(R.id.titleTextView);
         Button firstNameButton = findViewById(R.id.firstNameButton);
         Button lastNameButton = findViewById(R.id.lastNameButton);
         Button emailButton = findViewById(R.id.emailButton);
