@@ -506,7 +506,7 @@ public class updatecar extends AppCompatActivity {
         double offeredPrice = Double.parseDouble(CarPrice.getText().toString());
 //        String url = "http://192.168.68.52/android/update.php";
 
-        String url = "http://192.168.88.13/android/update.php";
+        String url = "http://192.168.1.104/android/update.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
