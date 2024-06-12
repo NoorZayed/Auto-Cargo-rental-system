@@ -58,9 +58,9 @@ public class RentRecyclerView extends AppCompatActivity {
             String url;
             if(getIntent().hasExtra("location")) {
                 String location = getIntent().getStringExtra("location");
-                url = "http://192.168.88.2/android/fetch_cars_rented.php?location=" + location;
+                url = "http://192.168.1.104/android/fetch_cars_rented.php?location=" + location;
             } else {
-                url = "http://192.168.88.2/android/fetch_cars_rented.php";
+                url = "http://192.168.1.104/android/fetch_cars_rented.php";
             }
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

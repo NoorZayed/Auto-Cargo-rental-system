@@ -40,7 +40,7 @@ public class mainpage extends AppCompatActivity {
         aboutBtn = findViewById(R.id.aboutIcon);
         homeBtn = findViewById(R.id.homepic);
         edit_pickupLocation = findViewById(R.id.edt_pickupLocation);
-        moreBtn = findViewById(R.id.accountIcon); // Changed to more button
+//        moreBtn = findViewById(R.id.accountIcon); // Changed to more button
         setupListeners();
     }
 

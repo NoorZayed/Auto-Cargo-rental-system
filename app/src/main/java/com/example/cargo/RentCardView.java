@@ -143,7 +143,7 @@ public class RentCardView extends RecyclerView.Adapter<RentCardView.CarViewHolde
         private void rentCar(int carId, String pickupDate, String dropDate, int position) {
             String url = null;
             try {
-                url = "http://192.168.88.13/android/update_car_status.php?id=" + carId + "&rented=1&date_rental=" + URLEncoder.encode(pickupDate, "UTF-8") + "&drop_date=" + URLEncoder.encode(dropDate, "UTF-8");
+                url = "http://192.168.1.104/android/update_car_status.php?id=" + carId + "&rented=1&date_rental=" + URLEncoder.encode(pickupDate, "UTF-8") + "&drop_date=" + URLEncoder.encode(dropDate, "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }

@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
 
         <TextView
-            android:id="@+id/mostRentedCarTitleTextView"
+            android:id="@+id/mostratedCarTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most Rated Car"
@@ -71,15 +71,16 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/mostRentedCarNameTextView"
+            android:id="@+id/mostratedCarNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="16sp"
+            android:textStyle="bold"
             tools:ignore="DuplicateIds" />
 
         <TextView
-            android:id="@+id/mostRentedCarCountLabelTextView"
+            android:id="@+id/mostratedCarCountLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rate Count:"
@@ -87,11 +88,12 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/mostRentedCarCountTextView"
+            android:id="@+id/mostratedCarCountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -112,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <TextView
-            android:id="@+id/mostRatedCarTitleTextView"
+            android:id="@+id/mostpriceCarTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most Price Car"
@@ -122,14 +124,15 @@
             tools:ignore="DuplicateIds" />
 
         <TextView
-            android:id="@+id/mostRatedCarNameTextView"
+            android:id="@+id/mostpriceCarNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/mostRatedCarCountLabelTextView"
+            android:id="@+id/mostpriceCarCountLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price:"
@@ -137,11 +140,12 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/mostRatedCarCountTextView"
+            android:id="@+id/mostpriceCarCountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -162,35 +166,37 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/mostpriceCarTitleTextView"
+            android:id="@+id/mostrentedCarTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Most Rented Car"
-            android:textColor="@android:color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/mostpriceCarNameTextView"
+            android:id="@+id/mostrentedCarNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textColor="#FBF9F9"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/mostpriceCarCountLabelTextView"
+            android:id="@+id/mostrentedCarCountLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rental Count:"
-            android:textColor="@android:color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/mostpriceCarCountTextView"
+            android:id="@+id/mostrentedCarCountTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -205,6 +211,5 @@
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="@+id/mostRentedCarCardView"
         app:layout_constraintTop_toTopOf="@+id/mostRentedCarCardView" />
-    <!-- Similar CardViews for Most Rated Car and Max Price Car -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
