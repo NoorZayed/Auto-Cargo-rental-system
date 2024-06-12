@@ -30,6 +30,8 @@
         <activity
             android:name=".RentRecyclerView"
             android:exported="false" />
+        <activity android:name=".ReportActivity" />
+
 
         <activity
             android:name=".Start"

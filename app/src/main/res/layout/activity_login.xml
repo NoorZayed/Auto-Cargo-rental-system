@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/log"
+    android:background="@drawable/redd"
     tools:context=".login">
 
     <Button
@@ -152,6 +152,7 @@
         android:layout_marginTop="10dp"
         android:text="Car rentals from trusted, local hosts"
         android:textAlignment="center"
+        android:textColor="#FAF6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_txt" />

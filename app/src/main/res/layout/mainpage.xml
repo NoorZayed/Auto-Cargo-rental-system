@@ -12,12 +12,13 @@
         android:layout_height="267dp"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="5dp"
-        android:background="@color/red"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
+        android:background="@drawable/rounded_background"
+        >
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
@@ -127,7 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="#D3130E"
+        android:background="@drawable/rounded_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -244,19 +245,19 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
-                android:id="@+id/accountIcon"
+                android:id="@+id/logout"
                 android:layout_width="46dp"
                 android:layout_height="37dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                app:srcCompat="@drawable/moreicon" />
+                app:srcCompat="@drawable/logout" />
 
             <TextView
                 android:id="@+id/moreText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="More"
+                android:text="Log Out"
                 android:textColor="#FAF7F7" />
         </LinearLayout>
 

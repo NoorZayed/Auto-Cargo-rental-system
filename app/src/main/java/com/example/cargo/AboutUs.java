@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutUs extends AppCompatActivity {
-    private ImageView aboutBtn, contactBtn, homeBtn;
+    private ImageView aboutBtn, contactBtn, homeBtn,logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class AboutUs extends AppCompatActivity {
         contactBtn = findViewById(R.id.contacticon);
         aboutBtn = findViewById(R.id.aboutIcon);
         homeBtn = findViewById(R.id.homepic);
-
+        logout = findViewById(R.id.logout);
     }
     private void setupListeners() {
         aboutBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +47,15 @@ public class AboutUs extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AboutUs.this, contactUs.class));
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start the next Activity (replace NextActivity with your actual class name)
+                Intent intent = new Intent(AboutUs.this ,login.class);
+                // Start the next Activity
+                startActivity(intent);
             }
         });
     }

@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FAF7F7"
     android:orientation="horizontal"
     android:padding="16dp">
 
@@ -8,8 +9,8 @@
         android:id="@+id/car_image"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:scaleType="centerCrop"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:scaleType="centerCrop" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -21,57 +22,57 @@
             android:id="@+id/car_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/car_brand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/car_year_model"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/car_seats_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/car_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/car_transmission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/car_motor_fuel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/car_offered_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
